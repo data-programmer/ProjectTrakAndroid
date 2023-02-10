@@ -6,4 +6,3 @@ plugins {
 }
 
 apply from: "$project.rootDir/spotless.gradle"
-apply from: "$project.rootDir/versions.gradle"

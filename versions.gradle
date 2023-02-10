@@ -1,7 +1,0 @@
-ext {
-    androidCompileSdk = 33
-    androidTargetSdk = 33
-    androidMinSdk = 21
-    versionCode = 1
-    versionName = "1.0.0"
-}
