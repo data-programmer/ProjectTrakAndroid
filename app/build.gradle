@@ -11,8 +11,8 @@ android {
         applicationId "com.kingsland.projecttrakandroid"
         minSdk androidMinSdk
         targetSdk androidTargetSdk
-        versionCode 1
-        versionName "1.0"
+        versionCode versionCode
+        versionName versionName
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
