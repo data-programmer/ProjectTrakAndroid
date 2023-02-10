@@ -18,14 +18,11 @@ android {
 }
 
 dependencies {
-    implementation libs.androidx.core
+    implementation libs.core
     implementation libs.splash
     implementation libs.lifecycle.runtime
-    implementation libs.compose.activity
-    implementation libs.compose.ui
-    implementation libs.compose.ui.tooling.preview
-    implementation libs.compose.material
-    testImplementation libs.junit
-    androidTestImplementation libs.junit.android
+    implementation libs.bundles.compose
+    implementation libs.junit.impl
+    androidTestImplementation libs.bundles.android.test
     // TODO: Grab dependencies as needed
 }

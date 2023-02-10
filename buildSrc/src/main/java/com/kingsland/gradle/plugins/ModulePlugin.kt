@@ -46,7 +46,7 @@ class ModulePlugin : Plugin<Project> {
                     }
                 }
                 composeOptions {
-                    kotlinCompilerExtensionVersion = "1.3.3"
+                    kotlinCompilerExtensionVersion = "1.4.2"
                 }
                 compileOptions {
                     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -58,12 +58,6 @@ class ModulePlugin : Plugin<Project> {
                     }
                 }
             }
-        }
-        project.dependencies {
-            add("implementation", "androidx.core:core-ktx:1.9.0")
-            add("implementation", "junit:junit:4.13.2")
-            add("androidTestImplementation", "androidx.test.ext:junit:1.1.5")
-            add("androidTestImplementation", "androidx.test.espresso:espresso-core:3.2.0")
         }
     }
 }
