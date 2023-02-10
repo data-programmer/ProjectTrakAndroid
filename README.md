@@ -10,7 +10,7 @@ An open-source project and task tracking Android application that lets you keep 
 - WearOS integration
 
 ## Getting Started
-1. Clone the repository: ``
+1. Clone the repository: `https://github.com/data-programmer/ProjectTrakAndroid`
 2. Open the project in Android Studio
 3. Build and run the app on an emulator or physical device
 
