@@ -1,10 +1,16 @@
-package com.kingsland.projecttrakandroid.ui.theme
+package com.kingsland.theme
 
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
+import com.kingsland.theme.color.Purple200
+import com.kingsland.theme.color.Purple500
+import com.kingsland.theme.color.Purple700
+import com.kingsland.theme.color.Teal200
+import com.kingsland.theme.shape.Shapes
+import com.kingsland.theme.type.Typography
 
 private val DarkColorPalette = darkColors(
     primary = Purple200,

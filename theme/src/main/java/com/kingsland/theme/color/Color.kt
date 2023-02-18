@@ -1,4 +1,4 @@
-package com.kingsland.projecttrakandroid.ui.theme
+package com.kingsland.theme.color
 
 import androidx.compose.ui.graphics.Color
 

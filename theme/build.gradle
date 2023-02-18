@@ -3,10 +3,7 @@ plugins {
 }
 
 android {
-    namespace 'com.kingsland.projecttrakandroid'
-    defaultConfig {
-        applicationId "com.kingsland.projecttrakandroid"
-    }
+    namespace = "com.kingsland.theme"
     buildFeatures {
         compose true
     }
@@ -20,7 +17,6 @@ dependencies {
     implementation libs.junit.impl
     // Module dependencies
     implementation project(":core")
-    implementation project(":theme")
 
     androidTestImplementation libs.bundles.android.test
     // TODO: Grab dependencies as needed

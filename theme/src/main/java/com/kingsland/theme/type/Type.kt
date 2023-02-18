@@ -1,4 +1,4 @@
-package com.kingsland.projecttrakandroid.ui.theme
+package com.kingsland.theme.type
 
 import androidx.compose.material.Typography
 import androidx.compose.ui.text.TextStyle

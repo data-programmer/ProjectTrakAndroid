@@ -1,4 +1,4 @@
-package com.kingsland.projecttrakandroid.ui.theme
+package com.kingsland.theme.shape
 
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.Shapes
