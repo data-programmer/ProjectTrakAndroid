@@ -11,14 +11,11 @@ android {
 
 dependencies {
     implementation libs.core
-    implementation libs.splash
     implementation libs.lifecycle.runtime
     implementation libs.bundles.compose
     implementation libs.junit.impl
     implementation libs.room
     kapt libs.room.kapt
-
     implementation project(":theme")
-
     androidTestImplementation libs.bundles.android.test
 }
