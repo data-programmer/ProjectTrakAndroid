@@ -9,6 +9,10 @@ gradlePlugin {
             id = "module-plugin"
             implementationClass = "com.kingsland.gradle.plugins.ModulePlugin"
         }
+        register("app-plugin") {
+            id = "app-plugin"
+            implementationClass = "com.kingsland.gradle.plugins.AppPlugin"
+        }
     }
 }
 

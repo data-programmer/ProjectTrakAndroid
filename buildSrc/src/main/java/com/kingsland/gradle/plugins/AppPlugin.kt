@@ -8,11 +8,9 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
-class ModulePlugin : Plugin<Project> {
+class AppPlugin : Plugin<Project> {
     override fun apply(project: Project) {
-        project.plugins.apply("com.android.library")
-        project.plugins.apply("kotlin-android")
-        project.plugins.apply("kotlin-kapt")
+        project.plugins.apply("com.android.application")
         val androidExtension = project.extensions.getByName("android")
         if (androidExtension is BaseExtension) {
             androidExtension.apply {
@@ -20,8 +18,8 @@ class ModulePlugin : Plugin<Project> {
                 defaultConfig {
                     targetSdk = Versions.TARGET_SDK
                     minSdk = Versions.MIN_SDK
-                    versionCode = Versions.MODULE_VERSION_CODE
-                    versionName = Versions.MODULE_VERSION_NAME
+                    versionCode = Versions.APP_VERSION_CODE
+                    versionName = Versions.APP_VERSION_NAME
                     testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
                 }
                 val proguardFile = "proguard-rules.pro"
