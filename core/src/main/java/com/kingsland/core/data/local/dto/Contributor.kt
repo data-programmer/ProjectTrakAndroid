@@ -8,5 +8,6 @@ import androidx.room.PrimaryKey
 data class Contributor(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
+    @ColumnInfo(name = "role") val role: String,
     @ColumnInfo(name = "projectId") val projectId: String
 )
