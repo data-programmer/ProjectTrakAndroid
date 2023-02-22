@@ -1,9 +1,9 @@
 plugins {
-    id 'module-plugin'
+   id 'module-plugin'
 }
 
 android {
-    namespace = "com.kingsland.core"
+    namespace = "com.kingsland.home"
     buildFeatures {
         compose true
     }
@@ -16,6 +16,7 @@ dependencies {
     implementation libs.room
     implementation libs.junit.impl
     kapt libs.room.kapt
+    implementation project(":core")
     implementation project(":theme")
     androidTestImplementation libs.bundles.android.test
 }

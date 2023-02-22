@@ -41,7 +41,8 @@ compose = [
     "compose-ui-tooling-preview",
     "compose-ui-util",
     "compose-animation",
-    "compose-activity"
+    "compose-activity",
+    "compose-navigation"
 ]
 android-test = [
     "junit-test",

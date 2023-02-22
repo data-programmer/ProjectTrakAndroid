@@ -19,7 +19,7 @@ dependencies {
     implementation libs.bundles.compose
     implementation libs.junit.impl
     // Module dependencies
-    implementation project(":core")
+    implementation project(":home")
     implementation project(":theme")
 
     androidTestImplementation libs.bundles.android.test

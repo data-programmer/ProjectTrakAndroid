@@ -22,3 +22,4 @@ rootProject.name = "ProjectTrakAndroid"
 include ':app'
 include ':core'
 include ':theme'
+include ':home'
