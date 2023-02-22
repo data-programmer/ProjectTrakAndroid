@@ -1,5 +1,6 @@
 package com.kingsland.home.presentation.home
 
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
 
@@ -7,5 +8,7 @@ import androidx.navigation.NavController
 fun HomeScreen(
     navController: NavController
 ) {
-
+    Text(
+        text = "This is the home screen!"
+    )
 }
