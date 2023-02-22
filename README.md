@@ -1,7 +1,7 @@
 # ProjectTrak Android App
 ## Work-in-progress
 
-An open-source project and task tracking Android application that lets you keep track of projects and tasks throughout your day. ProjectTrak features a multi-module architecture for feature seperation.
+An open-source project and task tracking multi-module reference Android application that lets you keep track of projects and tasks throughout your day. ProjectTrak features a multi-module architecture for reference and feature seperation.
 
 ## Features
 - Simple and easy-to-use UI
