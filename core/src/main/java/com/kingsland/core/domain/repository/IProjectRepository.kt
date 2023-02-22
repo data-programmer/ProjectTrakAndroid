@@ -1,6 +1,5 @@
 package com.kingsland.core.domain.repository
 
-import com.kingsland.core.data.local.dto.ProjectDto
 import com.kingsland.core.domain.model.ProjectDomain
 
 interface IProjectRepository {
