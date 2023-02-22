@@ -6,22 +6,19 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.kingsland.core.data.local.dto.Contributor
+import com.kingsland.core.data.local.dto.ContributorDto
 
 @Dao
 interface ContributorDao {
     @Query("select * from Contributor")
-    fun getAllContributors(): List<Contributor>
-
-    @Query("select * from Contributor where projectId == (:projectId)")
-    fun getAllContributorsByProject(projectId: Int): List<Contributor>
+    fun getAllContributors(): List<ContributorDto>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertContributor(contributor: Contributor)
+    fun insertContributor(contributorDto: ContributorDto)
 
     @Update
-    fun updateContributor(contributor: Contributor)
+    fun updateContributor(contributorDto: ContributorDto)
 
     @Delete
-    fun deleteContributor(contributor: Contributor)
+    fun deleteContributor(contributorDto: ContributorDto)
 }

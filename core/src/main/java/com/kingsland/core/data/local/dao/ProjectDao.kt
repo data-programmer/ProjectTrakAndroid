@@ -6,25 +6,22 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.kingsland.core.data.local.dto.Project
+import com.kingsland.core.data.local.dto.ProjectDto
 
 @Dao
 interface ProjectDao {
     @Query("select * from Project")
-    fun getAllProjects(): List<Project>
+    fun getAllProjects(): List<ProjectDto>
 
     @Query("select * from Project where id in (:id)")
-    fun getProjectById(id: String): Project
-
-    @Query("select * from Project where id in (:id)")
-    fun getContributorsProjects(id: String): List<Project>
+    fun getProjectById(id: Int): ProjectDto
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insertProject(project: Project)
+    fun insertProject(projectDto: ProjectDto)
 
     @Update
-    fun updateProject(project: Project)
+    fun updateProject(projectDto: ProjectDto)
 
     @Delete
-    fun deleteProject(project: Project)
+    fun deleteProject(projectDto: ProjectDto)
 }

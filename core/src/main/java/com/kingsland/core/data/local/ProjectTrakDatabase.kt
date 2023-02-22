@@ -5,24 +5,24 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.kingsland.core.data.local.dao.ContributorDao
-import com.kingsland.core.data.local.dao.NoteDao
+import com.kingsland.core.data.local.dao.TaskDao
 import com.kingsland.core.data.local.dao.ProjectDao
-import com.kingsland.core.data.local.dto.Contributor
-import com.kingsland.core.data.local.dto.Note
-import com.kingsland.core.data.local.dto.Project
+import com.kingsland.core.data.local.dto.ContributorDto
+import com.kingsland.core.data.local.dto.TaskDto
+import com.kingsland.core.data.local.dto.ProjectDto
 
 @Database(
     entities = [
-        Project::class,
-        Note::class,
-        Contributor::class
+        ProjectDto::class,
+        TaskDto::class,
+        ContributorDto::class
     ],
     version = 1,
     exportSchema = false
 )
 abstract class ProjectTrakDatabase : RoomDatabase() {
     abstract fun projectDao(): ProjectDao
-    abstract fun noteDao(): NoteDao
+    abstract fun taskDao(): TaskDao
     abstract fun contributorDao(): ContributorDao
 
     companion object {
