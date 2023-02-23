@@ -11,6 +11,7 @@ import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.kingsland.projecttrakandroid.ui.MainActivity
 import com.kingsland.splash.ui.Onboarding
+import com.kingsland.theme.ProjectTrakAndroidTheme
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
@@ -19,19 +20,22 @@ import kotlinx.coroutines.runBlocking
 class OnboardingActivity : ComponentActivity() {
     private val dataStore: DataStore<Preferences> by preferencesDataStore(name = "onboarding")
     private val hasOnboardedKey = stringPreferencesKey("has_onboarded")
-    private val mainActivityIntent = Intent(this, MainActivity::class.java)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         when (readStore()) {
             "yes" -> {
-                startActivity(mainActivityIntent)
+                startActivity(
+                    Intent(this, MainActivity::class.java)
+                )
                 finish()
             }
             else -> {
                 setContent {
-                    Onboarding(
-                        onGetStarted = { writeStore() }
-                    )
+                    ProjectTrakAndroidTheme {
+                        Onboarding(
+                            onGetStarted = { writeStore() }
+                        )
+                    }
                 }
             }
         }

@@ -4,6 +4,9 @@ plugins {
 
 android {
     namespace = "com.kingsland.splash"
+    buildFeatures {
+        compose true
+    }
 }
 
 dependencies {

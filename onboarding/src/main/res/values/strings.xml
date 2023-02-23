@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="get_started">Get Started</string>
+    <string name="page_1_title">Welcome</string>
+    <string name="page_1_desc">ProjectTrak is a project and task management Android application to help you keep organized and stay productive.</string>
+    <string name="page_2_title">Projects</string>
+    <string name="page_2_desc">You can organize your work into projects. Projects contain tasks needed to accomplish the project.</string>
+    <string name="page_3_title">Tasks</string>
+    <string name="page_3_desc">Individual units of work can be listed and prioritized as tasks. A task is stored and organized by project. The status of tasks can be tracked.</string>
+    <string name="page_4_title">Contributors</string>
+    <string name="page_4_desc">You can assign contributors to tasks. A contributor is the person responsible for completing the task.</string>
+</resources>

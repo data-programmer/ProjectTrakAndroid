@@ -44,9 +44,7 @@ class ModulePlugin : Plugin<Project> {
                         }
                     }
                 }
-                composeOptions {
-                    kotlinCompilerExtensionVersion = Versions.KOTLIN_COMPILER_EXTENSION
-                }
+                composeOptions.kotlinCompilerExtensionVersion = Versions.KOTLIN_COMPILER_EXTENSION
                 compileOptions {
                     sourceCompatibility = JavaVersion.VERSION_1_8
                     targetCompatibility = JavaVersion.VERSION_1_8
