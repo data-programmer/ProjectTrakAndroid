@@ -6,6 +6,7 @@ hilt = "2.45"
 constraint = "1.0.1"
 spotless = "6.12.1"
 core = "1.9.0"
+accompanist = "0.29.1-alpha"
 
 [libraries]
 core = { module = "androidx.core:core-ktx", version.ref = "core" }
@@ -28,6 +29,9 @@ compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compos
 compose-ui-util = { group = "androidx.compose.ui", name = "ui-util", version.ref = "compose" }
 compose-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version = "1.0.0" }
 compose-activity = { group = "androidx.activity", name = "activity-compose", version = "1.6.1" }
+accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist" }
+accompanist-indicator = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist" }
+datastore = { module = "androidx.datastore:datastore-preferences", version = "1.0.0" }
 junit-impl = { group = "junit", name = "junit", version = "4.13.2" }
 junit-test = { group = "androidx.test.ext", name = "junit", version = "1.1.5" }
 espresso-impl = { group = "androidx.test.espresso", name = "espresso-core", version = "3.2.0" }
@@ -43,6 +47,10 @@ compose = [
     "compose-animation",
     "compose-activity",
     "compose-navigation"
+]
+accompanist = [
+    "accompanist-pager",
+    "accompanist-indicator"
 ]
 android-test = [
     "junit-test",

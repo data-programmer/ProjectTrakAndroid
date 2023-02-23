@@ -1,0 +1,18 @@
+plugins {
+    id 'module-plugin'
+}
+
+android {
+    namespace = "com.kingsland.splash"
+}
+
+dependencies {
+    implementation libs.core
+    implementation libs.lifecycle.runtime
+    implementation libs.bundles.compose
+    implementation libs.bundles.accompanist
+    // TODO: Add datastore
+    implementation libs.junit.impl
+    implementation project(":theme")
+    androidTestImplementation libs.bundles.android.test
+}

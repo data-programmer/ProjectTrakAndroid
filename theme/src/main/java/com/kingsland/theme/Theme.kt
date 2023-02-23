@@ -5,32 +5,42 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.darkColors
 import androidx.compose.material.lightColors
 import androidx.compose.runtime.Composable
-import com.kingsland.theme.color.Purple200
-import com.kingsland.theme.color.Purple500
-import com.kingsland.theme.color.Purple700
-import com.kingsland.theme.color.Teal200
-import com.kingsland.theme.shape.Shapes
+import com.kingsland.theme.color.black
+import com.kingsland.theme.color.cardGray
+import com.kingsland.theme.color.darkGray
+import com.kingsland.theme.color.darkGreen
+import com.kingsland.theme.color.errorRed
+import com.kingsland.theme.color.lightGray
+import com.kingsland.theme.color.red
+import com.kingsland.theme.color.white
+import com.kingsland.theme.color.yellow
+import com.kingsland.theme.shape.RoundedShapes
 import com.kingsland.theme.type.Typography
 
 private val DarkColorPalette = darkColors(
-    primary = Purple200,
-    primaryVariant = Purple700,
-    secondary = Teal200
+    primary = red,
+    primaryVariant = darkGreen,
+    secondary = yellow,
+    background = lightGray,
+    surface = cardGray,
+    onPrimary = white,
+    onSecondary = white,
+    onBackground = darkGray,
+    onSurface = black,
+    onError = errorRed
 )
 
 private val LightColorPalette = lightColors(
-    primary = Purple500,
-    primaryVariant = Purple700,
-    secondary = Teal200
-
-    /* Other default colors to override
-    background = Color.White,
-    surface = Color.White,
-    onPrimary = Color.White,
-    onSecondary = Color.Black,
-    onBackground = Color.Black,
-    onSurface = Color.Black,
-    */
+    primary = red,
+    primaryVariant = darkGreen,
+    secondary = yellow,
+    background = lightGray,
+    surface = cardGray,
+    onPrimary = white,
+    onSecondary = white,
+    onBackground = darkGray,
+    onSurface = black,
+    onError = errorRed
 )
 
 @Composable
@@ -43,11 +53,10 @@ fun ProjectTrakAndroidTheme(
     } else {
         LightColorPalette
     }
-
     MaterialTheme(
         colors = colors,
         typography = Typography,
-        shapes = Shapes,
+        shapes = RoundedShapes,
         content = content
     )
 }

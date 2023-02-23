@@ -25,3 +25,4 @@ include ':theme'
 include ':home'
 // TODO: include modules here
 
+include ':onboarding'

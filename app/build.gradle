@@ -18,7 +18,11 @@ dependencies {
     implementation libs.lifecycle.runtime
     implementation libs.bundles.compose
     implementation libs.junit.impl
+    // TODO: Remove
+    implementation libs.datastore
+
     // Module dependencies
+    implementation project(":onboarding")
     implementation project(":home")
     implementation project(":theme")
 
