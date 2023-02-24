@@ -8,12 +8,16 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.compose.rememberNavController
+import com.kingsland.projecttrakandroid.model.ScaffoldConfig
+import com.kingsland.projecttrakandroid.navigation.ProjectTrakAppBar
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakBottomNav
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakNavHost
-import com.kingsland.projecttrakandroid.navigation.ProjectTrakAppBar
+import com.kingsland.projecttrakandroid.ui.component.ActionButton
 import com.kingsland.projecttrakandroid.util.Util
 import com.kingsland.theme.ProjectTrakAndroidTheme
 
@@ -23,7 +27,7 @@ class MainActivity : ComponentActivity() {
         installSplashScreen()
         setContent {
             ProjectTrakAndroidTheme {
-               ProjectTrakScaffold()
+                ProjectTrakScaffold()
             }
         }
     }
@@ -32,6 +36,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ProjectTrakScaffold() {
     val navController = rememberNavController()
+    val scaffoldConfig = remember { mutableStateOf(ScaffoldConfig()) }
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
@@ -42,11 +47,19 @@ fun ProjectTrakScaffold() {
             )
         },
         bottomBar = { ProjectTrakBottomNav(navController) },
+        floatingActionButton = {
+            ActionButton(
+                isVisible = scaffoldConfig.value.isFloatingActionButtonVisible,
+                onClick = scaffoldConfig.value.floatingActionButtonAction
+            )
+        },
         backgroundColor = MaterialTheme.colors.background,
     ) { paddingValues ->
         ProjectTrakNavHost(
             modifier = Modifier.padding(paddingValues),
-            navController = navController
+            navController = navController,
+            // TODO: Figure this out later
+            scaffoldConfig = scaffoldConfig.value
         )
     }
 }

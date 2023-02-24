@@ -21,26 +21,13 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun ProjectTrakAppBar(
     modifier: Modifier = Modifier,
-    title: String? = null,
     greeting: String? = null,
-    name: String? = null
+    name: String? = null,
+    onProfileClick: () -> Unit = { }
 ) {
     TopAppBar(
         modifier = modifier,
         title = {
-            title?.let {
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    verticalAlignment = Alignment.CenterVertically,
-                    horizontalArrangement = Arrangement.Center
-                ) {
-                    Text(
-                        text = title,
-                        style = MaterialTheme.typography.h5,
-                        color = MaterialTheme.colors.onSurface,
-                    )
-                }
-            }
             name?.let {
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -65,10 +52,11 @@ fun ProjectTrakAppBar(
         },
         actions = {
             IconButton(
-                onClick = { /*TODO*/ }
+                onClick = onProfileClick
             ) {
                 Icon(
                     imageVector = Icons.Filled.Person,
+                    tint = MaterialTheme.colors.primary,
                     contentDescription = null,
                 )
             }

@@ -12,11 +12,13 @@ import com.kingsland.contributors.presentation.ContributorsScreen
 import com.kingsland.home.presentation.home.HomeScreen
 import com.kingsland.home.presentation.viewmodel.HomeViewModel
 import com.kingsland.projects.presentation.ProjectsScreen
+import com.kingsland.projecttrakandroid.model.ScaffoldConfig
 
 @Composable
 fun ProjectTrakNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
+    scaffoldConfig: ScaffoldConfig,
     startDestination: Screen = Screen.Home
 ) {
     NavHost(
