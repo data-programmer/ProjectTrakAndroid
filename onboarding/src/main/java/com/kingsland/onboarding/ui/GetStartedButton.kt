@@ -1,4 +1,4 @@
-package com.kingsland.splash.ui
+package com.kingsland.onboarding.ui
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ButtonDefaults

@@ -1,4 +1,4 @@
-package com.kingsland.splash.model
+package com.kingsland.onboarding.model
 
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource

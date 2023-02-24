@@ -10,7 +10,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import com.kingsland.projecttrakandroid.ui.main.MainActivity
-import com.kingsland.splash.ui.Onboarding
+import com.kingsland.onboarding.ui.Onboarding
 import com.kingsland.theme.ProjectTrakAndroidTheme
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map

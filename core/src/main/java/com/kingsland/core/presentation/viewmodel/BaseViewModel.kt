@@ -2,6 +2,7 @@ package com.kingsland.core.presentation.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 open class BaseViewModel : ViewModel() {
@@ -10,7 +11,7 @@ open class BaseViewModel : ViewModel() {
         onSuccess: (T) -> Unit,
         onFailure: (Throwable) -> Unit
     ) {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             Result
                 .runCatching { action() }
                 .onSuccess { onSuccess(it) }
