@@ -1,34 +1,35 @@
 package com.kingsland.projecttrakandroid.navigation
 
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.kingsland.home.presentation.home.HomeScreen
 
 @Composable
 fun ProjectTrakNavHost(
     modifier: Modifier = Modifier,
-    navController: NavHostController = rememberNavController(),
-    startDestination: String = Screens.Home.name
+    navController: NavHostController,
+    startDestination: Screen = Screen.Home
 ) {
     NavHost(
-        modifier = modifier,
+        modifier = modifier.padding(horizontal = 12.dp),
         navController = navController,
-        startDestination = startDestination
+        startDestination = startDestination.route
     ) {
-        composable(Screens.Home.name) {
+        composable(Screen.Home.route) {
             HomeScreen(
                 navController = navController,
             )
         }
-        composable(Screens.Project.name) {
-
+        composable(Screen.Projects.route) {
+            // TODO: Placeholder
         }
-        composable(Screens.Contributor.name) {
-
+        composable(Screen.Contributors.route) {
+            // TODO: Placeholder
         }
     }
 }

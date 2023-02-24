@@ -24,6 +24,7 @@ dependencies {
     // Module dependencies
     implementation project(":onboarding")
     implementation project(":home")
+    implementation project(":core")
     implementation project(":theme")
 
     androidTestImplementation libs.bundles.android.test

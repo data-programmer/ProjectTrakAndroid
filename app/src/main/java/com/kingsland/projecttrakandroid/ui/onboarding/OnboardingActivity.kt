@@ -9,7 +9,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
-import com.kingsland.projecttrakandroid.ui.MainActivity
+import com.kingsland.projecttrakandroid.ui.main.MainActivity
 import com.kingsland.splash.ui.Onboarding
 import com.kingsland.theme.ProjectTrakAndroidTheme
 import kotlinx.coroutines.flow.first
@@ -23,22 +23,25 @@ class OnboardingActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         when (readStore()) {
-            "yes" -> {
-                startActivity(
-                    Intent(this, MainActivity::class.java)
-                )
-                finish()
-            }
+            "yes" -> { navToMainActivity() }
             else -> {
                 setContent {
                     ProjectTrakAndroidTheme {
                         Onboarding(
-                            onGetStarted = { writeStore() }
+                            onGetStarted = {
+                                writeStore()
+                                navToMainActivity()
+                            }
                         )
                     }
                 }
             }
         }
+    }
+
+    private fun navToMainActivity() {
+        startActivity(Intent(this, MainActivity::class.java))
+        finish()
     }
 
     private fun readStore(): String = runBlocking {
