@@ -15,11 +15,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kingsland.home.presentation.model.Stat
+import com.kingsland.home.presentation.model.Statistic
 
 @Composable
 fun StatCard(
-    stat: Stat
+    statistic: Statistic
 ) {
     Card(
         modifier = Modifier.size(
@@ -38,15 +38,15 @@ fun StatCard(
         ) {
             Icon(
                 modifier = Modifier.size(25.dp),
-                imageVector = stat.icon,
+                imageVector = statistic.icon,
                 contentDescription = null
             )
             Text(
-                text = stat.label,
+                text = statistic.label,
                 style = MaterialTheme.typography.caption
             )
             Text(
-                text = stat.data.toString(),
+                text = statistic.data.toString(),
                 style = MaterialTheme.typography.body2
             )
         }
@@ -57,7 +57,7 @@ fun StatCard(
 @Preview(showBackground = true)
 fun StatCardPreview() {
     StatCard(
-        Stat(
+        Statistic(
             label ="Tasks Completed",
             data = 26,
             icon = Icons.Filled.Check

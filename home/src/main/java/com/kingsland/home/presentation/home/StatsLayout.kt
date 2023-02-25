@@ -14,11 +14,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kingsland.home.presentation.home.component.StatCard
-import com.kingsland.home.presentation.model.Stat
+import com.kingsland.home.presentation.model.Statistic
 
 @Composable
 fun StatsLayout(
-    statList: List<Stat> = listOf()
+    statisticList: List<Statistic> = listOf()
 ) {
     Column(
         verticalArrangement = Arrangement.Top,
@@ -34,9 +34,9 @@ fun StatsLayout(
             horizontalArrangement = Arrangement.SpaceEvenly,
             contentPadding = PaddingValues(vertical = 12.dp)
         ) {
-            if (statList.isNotEmpty()) {
-                items(statList) { stat ->
-                    StatCard(stat = stat)
+            if (statisticList.isNotEmpty()) {
+                items(statisticList) { stat ->
+                    StatCard(statistic = stat)
                 }
             } else {
                 item {

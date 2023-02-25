@@ -1,9 +1,9 @@
-package com.kingsland.home
+package com.kingsland.projects
 
 import com.kingsland.core.database.dto.ProjectDto
 import com.kingsland.core.database.dto.TaskDto
-import com.kingsland.home.domain.model.TaskDomain
-import com.kingsland.home.domain.model.ProjectDomain
+import com.kingsland.projects.domain.model.ProjectDomain
+import com.kingsland.projects.domain.model.TaskDomain
 
 fun ProjectDto.convertToSource() = ProjectDomain(
     id = id,
