@@ -1,9 +1,10 @@
-package com.kingsland.home.use_case
+package com.kingsland.home.domain.usecase
 
 import com.kingsland.home.domain.model.ProjectDomain
 import com.kingsland.home.domain.repository.IProjectRepository
+import javax.inject.Inject
 
-class ProjectUseCase(
+class ProjectUseCase @Inject constructor(
     private val projectRepository: IProjectRepository
 ) {
     fun getAllProjects(): List<ProjectDomain> = projectRepository.getAllProjects()

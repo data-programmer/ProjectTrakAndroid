@@ -12,6 +12,7 @@ class AppPlugin : Plugin<Project> {
     override fun apply(project: Project) {
         project.plugins.apply("com.android.application")
         project.plugins.apply("kotlin-android")
+        project.plugins.apply("kotlin-kapt")
         val androidExtension = project.extensions.getByName("android")
         if (androidExtension is BaseExtension) {
             androidExtension.apply {

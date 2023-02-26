@@ -1,9 +1,10 @@
-package com.kingsland.home.use_case
+package com.kingsland.home.domain.usecase
 
 import com.kingsland.home.domain.model.TaskDomain
 import com.kingsland.home.domain.repository.ITaskRepository
+import javax.inject.Inject
 
-class TaskUseCase(
+class TaskUseCase @Inject constructor(
     private val taskRepository: ITaskRepository
 ) {
     fun getAllTasks(): List<TaskDomain> = taskRepository.getAllTasks()

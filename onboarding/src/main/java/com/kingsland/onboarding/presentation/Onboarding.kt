@@ -1,4 +1,4 @@
-package com.kingsland.onboarding.ui
+package com.kingsland.onboarding.presentation
 
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.layout.Arrangement
@@ -18,7 +18,7 @@ import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 import com.kingsland.splash.R
-import com.kingsland.onboarding.model.Page
+import com.kingsland.onboarding.presentation.model.Page
 
 @OptIn(ExperimentalPagerApi::class)
 @Composable

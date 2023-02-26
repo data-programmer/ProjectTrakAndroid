@@ -5,10 +5,12 @@ import com.kingsland.home.data.repository.ProjectRepository
 import com.kingsland.home.data.repository.TaskRepository
 import com.kingsland.home.presentation.model.HomeState
 import com.kingsland.home.presentation.model.Project
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Deferred
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
+@HiltViewModel
 class HomeViewModel(
     private val projectRepository: ProjectRepository,
     private val taskRepository: TaskRepository
@@ -17,8 +19,10 @@ class HomeViewModel(
     private val _homeState = MutableStateFlow<HomeState>(HomeState.Loading)
     val homeState: StateFlow<HomeState> = _homeState
 
-    init {
+    init { getHomeData() }
 
+    private fun getHomeData() {
+        // TODO: Launch all async/launch coroutines, gather data, display
     }
 
     private suspend fun demo() {

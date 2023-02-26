@@ -1,4 +1,4 @@
-package com.kingsland.core.database.dao
+package com.kingsland.projecttrakandroid.database.dao
 
 import androidx.room.Dao
 import androidx.room.Delete
@@ -6,7 +6,7 @@ import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
 import androidx.room.Update
-import com.kingsland.core.database.dto.ContributorDto
+import com.kingsland.projecttrakandroid.database.dto.ContributorDto
 
 @Dao
 interface ContributorDao {

@@ -1,4 +1,4 @@
-package com.kingsland.onboarding.ui
+package com.kingsland.onboarding.presentation
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -16,7 +16,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.kingsland.splash.R
-import com.kingsland.onboarding.model.Page
+import com.kingsland.onboarding.presentation.model.Page
 
 @Composable
 fun PageUI(

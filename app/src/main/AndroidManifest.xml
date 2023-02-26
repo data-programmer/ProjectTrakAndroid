@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AppSplash"
         tools:targetApi="33">
         <activity
-            android:name=".ui.onboarding.OnboardingActivity"
+            android:name=".ui.main.MainActivity"
             android:theme="@style/Theme.ProjectTrakAndroid"
             android:exported="true">
             <intent-filter>
@@ -22,10 +22,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.main.MainActivity"
-            android:theme="@style/Theme.ProjectTrakAndroid"
-            android:exported="false" />
     </application>
 
 </manifest>

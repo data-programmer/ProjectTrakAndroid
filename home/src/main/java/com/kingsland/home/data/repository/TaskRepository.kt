@@ -5,8 +5,9 @@ import com.kingsland.home.convertToSource
 import com.kingsland.home.data.source.TaskDataSource
 import com.kingsland.home.domain.model.TaskDomain
 import com.kingsland.home.domain.repository.ITaskRepository
+import javax.inject.Inject
 
-class TaskRepository(
+class TaskRepository @Inject constructor(
     private val taskDataSource: TaskDataSource
 ) : ITaskRepository {
     override fun getAllTasks(): List<TaskDomain> = taskDataSource.getAllTasks().convertTaskDtoToDomain()

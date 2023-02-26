@@ -18,7 +18,10 @@ dependencies {
     implementation libs.lifecycle.runtime
     implementation libs.bundles.compose
     implementation libs.junit.impl
-    // TODO: Remove
+    implementation libs.hilt.android
+    kapt libs.hilt.compiler
+    implementation libs.room
+    kapt libs.room.kapt
     implementation libs.datastore
 
     // Module dependencies
