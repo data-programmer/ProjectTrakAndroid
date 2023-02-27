@@ -13,13 +13,14 @@ import androidx.compose.ui.unit.dp
 
 @Composable
 fun TryAgainButton(
+    modifier: Modifier = Modifier,
     buttonText: String,
     onClick: () -> Unit = { }
 ) {
     Button(
-        modifier = Modifier.size(
-            width = 140.dp,
-            height = 60.dp
+        modifier = modifier.size(
+            width = 120.dp,
+            height = 40.dp
         ),
         onClick = onClick,
         elevation = ButtonDefaults.elevation(8.dp),
