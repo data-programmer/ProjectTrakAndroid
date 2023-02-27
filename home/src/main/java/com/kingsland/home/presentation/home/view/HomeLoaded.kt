@@ -6,9 +6,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kingsland.home.presentation.home.component.BacklogTaskList
 import com.kingsland.home.presentation.home.component.ProjectsList
 import com.kingsland.home.presentation.home.component.StatsLayout
-import com.kingsland.home.presentation.home.component.TaskList
+import com.kingsland.home.presentation.home.component.InProgressTaskList
 import com.kingsland.home.presentation.model.Project
 import com.kingsland.home.presentation.model.Statistic
 import com.kingsland.home.presentation.model.Task
@@ -20,7 +21,8 @@ fun HomeLoaded(
     tasksInProgress: List<Task> = listOf(),
     backlogTasks: List<Task> = listOf(),
     onProjectClick: (Int) -> Unit = { },
-    onTaskClick: (Int) -> Unit = { }
+    onTaskClick: (Int) -> Unit = { },
+    onBacklogClick: (Int) -> Unit = { }
 ) {
     LazyColumn(
         contentPadding = PaddingValues(vertical = 8.dp),
@@ -36,9 +38,15 @@ fun HomeLoaded(
             )
         }
         item {
-            TaskList(
+            InProgressTaskList(
                 tasksInProgress = tasksInProgress,
                 onTaskClick = onTaskClick
+            )
+        }
+        item {
+            BacklogTaskList(
+                backlogTasks = backlogTasks,
+                onTaskClick = onBacklogClick
             )
         }
     }

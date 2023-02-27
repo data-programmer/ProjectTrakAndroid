@@ -18,7 +18,7 @@ import com.kingsland.home.R
 import com.kingsland.home.presentation.model.Task
 
 @Composable
-fun TaskList(
+fun InProgressTaskList(
     tasksInProgress: List<Task>,
     onTaskClick: (Int) -> Unit = { }
 ) {
@@ -50,7 +50,7 @@ fun TaskList(
 @Composable
 @Preview(showBackground = true)
 fun TaskListPreview() {
-    TaskList(
+    InProgressTaskList(
         tasksInProgress = Task.getTestData()
     )
 }
