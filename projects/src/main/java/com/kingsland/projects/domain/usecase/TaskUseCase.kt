@@ -1,4 +1,4 @@
-package com.kingsland.projects.use_case
+package com.kingsland.projects.domain.usecase
 
 import com.kingsland.projects.domain.model.TaskDomain
 import com.kingsland.projects.domain.repository.ITaskRepository

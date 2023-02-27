@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.kingsland.projecttrakandroid.database.dao.ContributorDao
-import com.kingsland.projecttrakandroid.database.dao.ProjectDao
+import com.kingsland.core.database.dao.ContributorDao
+import com.kingsland.core.database.dao.ProjectDao
 import com.kingsland.core.database.dao.TaskDao
-import com.kingsland.projecttrakandroid.database.dto.ContributorDto
-import com.kingsland.projecttrakandroid.database.dto.ProjectDto
-import com.kingsland.projecttrakandroid.database.dto.TaskDto
+import com.kingsland.core.database.dto.ContributorDto
+import com.kingsland.core.database.dto.ProjectDto
+import com.kingsland.core.database.dto.TaskDto
 
 @Database(
     entities = [

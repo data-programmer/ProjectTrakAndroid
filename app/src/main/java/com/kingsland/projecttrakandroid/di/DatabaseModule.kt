@@ -2,8 +2,8 @@ package com.kingsland.projecttrakandroid.di
 
 import android.content.Context
 import com.kingsland.core.database.ProjectTrakDatabase
-import com.kingsland.projecttrakandroid.database.dao.ContributorDao
-import com.kingsland.projecttrakandroid.database.dao.ProjectDao
+import com.kingsland.core.database.dao.ContributorDao
+import com.kingsland.core.database.dao.ProjectDao
 import com.kingsland.core.database.dao.TaskDao
 import dagger.Module
 import dagger.Provides

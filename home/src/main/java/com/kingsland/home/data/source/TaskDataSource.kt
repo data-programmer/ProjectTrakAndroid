@@ -1,7 +1,7 @@
 package com.kingsland.home.data.source
 
 import com.kingsland.core.database.dao.TaskDao
-import com.kingsland.projecttrakandroid.database.dto.TaskDto
+import com.kingsland.core.database.dto.TaskDto
 import javax.inject.Inject
 
 class TaskDataSource @Inject constructor(

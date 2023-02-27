@@ -14,8 +14,8 @@ dependencies {
     implementation libs.lifecycle.runtime
     implementation libs.bundles.compose
     implementation libs.room
-    implementation libs.junit.impl
     kapt libs.room.kapt
+    implementation libs.junit.impl
     implementation project(":theme")
     androidTestImplementation libs.bundles.android.test
 }

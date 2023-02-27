@@ -1,4 +1,4 @@
-package com.kingsland.projecttrakandroid.database.dto
+package com.kingsland.core.database.dto
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity

@@ -3,7 +3,7 @@ package com.kingsland.home.di
 import com.kingsland.core.database.dao.TaskDao
 import com.kingsland.home.data.source.ProjectDataSource
 import com.kingsland.home.data.source.TaskDataSource
-import com.kingsland.projecttrakandroid.database.dao.ProjectDao
+import com.kingsland.core.database.dao.ProjectDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
