@@ -1,4 +1,4 @@
-package com.kingsland.home.presentation.home
+package com.kingsland.home.presentation.home.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column

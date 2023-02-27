@@ -1,4 +1,4 @@
-package com.kingsland.home.presentation.home
+package com.kingsland.home.presentation.home.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,38 +13,31 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kingsland.home.presentation.home.component.StatCard
-import com.kingsland.home.presentation.model.Statistic
+import com.kingsland.home.presentation.model.PriorityTask
 
 @Composable
-fun StatsLayout(
-    statisticList: List<Statistic> = listOf()
+fun TaskList(
+    tasksInProgress: List<PriorityTask>
 ) {
     Column(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = "Statistics",
+            text = "In progress",
             style = MaterialTheme.typography.h5
         )
         LazyRow(
             modifier = Modifier.fillMaxWidth(),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceEvenly,
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
             contentPadding = PaddingValues(vertical = 12.dp)
         ) {
-            if (statisticList.isNotEmpty()) {
-                items(statisticList) { stat ->
-                    StatCard(statistic = stat)
-                }
-            } else {
-                item {
-                    Text(
-                        text = "No statistics to display at this time",
-                        style = MaterialTheme.typography.body1
-                    )
-                }
+            items(tasksInProgress) { task ->
+                TaskCard(
+                    title = task.title,
+                    desc = task.desc
+                )
             }
         }
     }
@@ -52,7 +45,8 @@ fun StatsLayout(
 
 @Composable
 @Preview(showBackground = true)
-fun StatsLayoutPreview() {
-    StatsLayout()
+fun TaskListPreview() {
+    TaskList(
+        tasksInProgress = PriorityTask.getTestData()
+    )
 }
-

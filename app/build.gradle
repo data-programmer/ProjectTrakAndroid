@@ -15,16 +15,14 @@ android {
 
 dependencies {
     implementation libs.core
-    implementation libs.splash
     implementation libs.lifecycle.runtime
     implementation libs.bundles.compose
     implementation libs.junit.impl
+    implementation libs.hilt.viewmodel
     implementation libs.room
     kapt libs.room.kapt
     implementation libs.hilt.android
     kapt libs.hilt.kapt
-    implementation libs.datastore
-    // Module dependencies
     implementation project(":onboarding")
     implementation project(":home")
     implementation project(":projects")

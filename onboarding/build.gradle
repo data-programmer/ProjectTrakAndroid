@@ -11,8 +11,10 @@ android {
 
 dependencies {
     implementation libs.core
+    implementation libs.splash
     implementation libs.lifecycle.runtime
     implementation libs.bundles.compose
+    implementation libs.datastore
     implementation libs.bundles.accompanist
     implementation libs.junit.impl
     implementation project(":theme")

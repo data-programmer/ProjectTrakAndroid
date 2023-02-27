@@ -4,13 +4,13 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.kingsland.contributors.presentation.ContributorsScreen
 import com.kingsland.home.presentation.home.HomeScreen
-import com.kingsland.home.presentation.viewmodel.HomeViewModel
+import com.kingsland.onboarding.presentation.Onboarding
 import com.kingsland.projects.presentation.ProjectsScreen
 import com.kingsland.projecttrakandroid.model.ScaffoldConfig
 
@@ -19,7 +19,10 @@ fun ProjectTrakNavHost(
     modifier: Modifier = Modifier,
     navController: NavHostController,
     scaffoldConfig: ScaffoldConfig,
-    startDestination: Screen = Screen.Home
+    startDestination: Screen = Screen.Home,
+
+
+
 ) {
     NavHost(
         modifier = modifier.padding(horizontal = 12.dp),
@@ -29,7 +32,7 @@ fun ProjectTrakNavHost(
         composable(Screen.Home.route) {
             HomeScreen(
                 navController = navController,
-                viewModel = viewModel()
+                viewModel = hiltViewModel()
             )
         }
         composable(Screen.Projects.route) {

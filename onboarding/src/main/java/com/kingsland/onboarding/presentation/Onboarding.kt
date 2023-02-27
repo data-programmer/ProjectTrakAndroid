@@ -17,6 +17,8 @@ import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
+import com.kingsland.onboarding.presentation.component.GetStartedButton
+import com.kingsland.onboarding.presentation.component.PageUI
 import com.kingsland.splash.R
 import com.kingsland.onboarding.presentation.model.Page
 

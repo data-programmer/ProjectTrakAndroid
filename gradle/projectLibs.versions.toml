@@ -12,15 +12,15 @@ accompanist = "0.29.1-alpha"
 core = { module = "androidx.core:core-ktx", version.ref = "core" }
 room = { module = "androidx.room:room-runtime", version.ref = "room" }
 room-kapt = { module = "androidx.room:room-compiler", version.ref = "room" }
+hilt-viewmodel = { module = "androidx.hilt:hilt-navigation-compose", version = "1.0.0" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
 hilt-kapt = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 splash = { module = "androidx.core:core-splashscreen", version = "1.0.0" }
-compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version = "2.4.1" }
 coil-compose = { group = "io.coil-kt", name = "coil-compose", version = "2.1.0" }
 coroutines-core = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-core", version.ref = "kotlinx" }
 coroutines-android = { group = "org.jetbrains.kotlinx", name = "kotlinx-coroutines-android", version.ref = "kotlinx" }
-fragment = { module = "androidx.fragment:fragment-ktx", version = "1.5.5" }
 lifecycle-runtime = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version = "2.5.1" }
+compose-navigation = { group = "androidx.navigation", name = "navigation-compose", version = "2.5.1" }
 compose-material = { group = "androidx.compose.material", name = "material", version = "1.3.0"}
 compose-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview", version.ref = "compose" }
@@ -30,6 +30,7 @@ compose-ui = { group = "androidx.compose.ui", name = "ui", version.ref = "compos
 compose-ui-util = { group = "androidx.compose.ui", name = "ui-util", version.ref = "compose" }
 compose-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout-compose", version = "1.0.0" }
 compose-activity = { group = "androidx.activity", name = "activity-compose", version = "1.6.1" }
+compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version = "2.5.1" }
 accompanist-pager = { group = "com.google.accompanist", name = "accompanist-pager", version.ref = "accompanist" }
 accompanist-indicator = { group = "com.google.accompanist", name = "accompanist-pager-indicators", version.ref = "accompanist" }
 datastore = { module = "androidx.datastore:datastore-preferences", version = "1.0.0" }
@@ -47,7 +48,8 @@ compose = [
     "compose-ui-util",
     "compose-animation",
     "compose-activity",
-    "compose-navigation"
+    "compose-navigation",
+    "compose-viewmodel"
 ]
 accompanist = [
     "accompanist-pager",

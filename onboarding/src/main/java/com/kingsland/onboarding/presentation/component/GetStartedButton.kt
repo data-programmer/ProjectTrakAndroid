@@ -1,4 +1,4 @@
-package com.kingsland.onboarding.presentation
+package com.kingsland.onboarding.presentation.component
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ButtonDefaults
