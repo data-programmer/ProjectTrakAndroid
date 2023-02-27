@@ -14,17 +14,10 @@ dependencies {
     implementation libs.core
     implementation libs.lifecycle.runtime
     implementation libs.bundles.compose
-
-
     implementation libs.room
     kapt libs.room.kapt
-
-
-//    implementation libs.hilt.android
-//    kapt libs.hilt.compiler
-
-
-
+    implementation libs.hilt.android
+    kapt libs.hilt.kapt
     implementation libs.junit.impl
     implementation project(":core")
     implementation project(":theme")

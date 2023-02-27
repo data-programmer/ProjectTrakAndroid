@@ -27,4 +27,6 @@ dependencies {
     implementation(kotlin("gradle-plugin", "1.8.10"))
     implementation(kotlin("android-extensions"))
     implementation(kotlin("script-runtime"))
+    // TODO: Discover which dependency uses javapoet 1.11
+    implementation("com.squareup:javapoet:1.13.0")
 }
