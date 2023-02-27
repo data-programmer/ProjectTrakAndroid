@@ -1,8 +1,8 @@
 package com.kingsland.home.presentation.model
 
 sealed class HomeState {
-    object Empty : HomeState()
     object Loading : HomeState()
+    object Empty : HomeState()
     data class Loaded(
         val statistics: List<Statistic>,
         val projects: List<Project>,
