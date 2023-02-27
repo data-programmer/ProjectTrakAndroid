@@ -11,20 +11,23 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kingsland.home.presentation.model.PriorityTask
+import com.kingsland.home.R
+import com.kingsland.home.presentation.model.Task
 
 @Composable
 fun TaskList(
-    tasksInProgress: List<PriorityTask>
+    tasksInProgress: List<Task>,
+    onTaskClick: (Int) -> Unit = { }
 ) {
     Column(
         verticalArrangement = Arrangement.Top,
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = "In progress",
+            text = stringResource(R.string.in_progress),
             style = MaterialTheme.typography.h5
         )
         LazyRow(
@@ -36,7 +39,8 @@ fun TaskList(
             items(tasksInProgress) { task ->
                 TaskCard(
                     title = task.title,
-                    desc = task.desc
+                    description = task.description,
+                    onClick = { onTaskClick(task.id) }
                 )
             }
         }
@@ -47,6 +51,6 @@ fun TaskList(
 @Preview(showBackground = true)
 fun TaskListPreview() {
     TaskList(
-        tasksInProgress = PriorityTask.getTestData()
+        tasksInProgress = Task.getTestData()
     )
 }

@@ -20,9 +20,6 @@ fun ProjectTrakNavHost(
     navController: NavHostController,
     scaffoldConfig: ScaffoldConfig,
     startDestination: Screen = Screen.Home,
-
-
-
 ) {
     NavHost(
         modifier = modifier.padding(horizontal = 12.dp),

@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Card
+import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -14,11 +15,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun TaskCard(
     modifier: Modifier = Modifier,
     title: String,
-    desc: String
+    description: String,
+    onClick: () -> Unit = { }
 ) {
     Card(
         modifier = modifier.size(
@@ -28,7 +31,8 @@ fun TaskCard(
         shape = MaterialTheme.shapes.medium,
         backgroundColor = MaterialTheme.colors.surface,
         elevation = 8.dp,
-        contentColor = MaterialTheme.colors.onSurface
+        contentColor = MaterialTheme.colors.onSurface,
+        onClick = onClick
     ) {
         Column(
             modifier = Modifier.padding(4.dp),
@@ -41,7 +45,7 @@ fun TaskCard(
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = desc,
+                text = description,
                 style = MaterialTheme.typography.body2
             )
         }
@@ -53,6 +57,6 @@ fun TaskCard(
 fun TaskCardPreview() {
     TaskCard(
         title = "Configure Git",
-        desc = "We need to configure Git to use xyz."
+        description = "We need to configure Git to use xyz."
     )
 }

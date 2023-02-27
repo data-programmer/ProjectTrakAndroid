@@ -10,6 +10,7 @@ import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
+import com.kingsland.theme.ProjectTrakAndroidTheme
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.runBlocking
@@ -21,12 +22,14 @@ class OnboardActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         installSplashScreen()
         setContent {
-            when (readStore()) {
-                "yes" -> { navToMainActivity() }
-                else -> {
-                    Onboarding {
-                        writeStore()
-                        navToMainActivity()
+            ProjectTrakAndroidTheme {
+                when (readStore()) {
+                    "yes" -> { navToMainActivity() }
+                    else -> {
+                        Onboarding {
+                            writeStore()
+                            navToMainActivity()
+                        }
                     }
                 }
             }

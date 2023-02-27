@@ -9,9 +9,9 @@ import androidx.navigation.NavController
 import com.kingsland.home.presentation.home.component.ProjectsList
 import com.kingsland.home.presentation.home.component.StatsLayout
 import com.kingsland.home.presentation.home.component.TaskList
-import com.kingsland.home.presentation.model.PriorityProject
-import com.kingsland.home.presentation.model.PriorityTask
+import com.kingsland.home.presentation.model.Project
 import com.kingsland.home.presentation.model.Statistic
+import com.kingsland.home.presentation.model.Task
 import com.kingsland.home.presentation.viewmodel.HomeViewModel
 
 @Composable
@@ -19,6 +19,7 @@ fun HomeScreen(
     navController: NavController,
     viewModel: HomeViewModel
 ) {
+    // TODO: Use viewModel
     LazyColumn(
         contentPadding = PaddingValues(vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
@@ -27,10 +28,20 @@ fun HomeScreen(
             StatsLayout(statisticList = Statistic.getTestStats())
         }
         item {
-            ProjectsList(priorityProjects = PriorityProject.getTestData())
+            ProjectsList(
+                projects = Project.getTestData(),
+                onProjectClick = { id ->
+                    navController.navigate("projects/$id")
+                }
+            )
         }
         item {
-            TaskList(tasksInProgress = PriorityTask.getTestData())
+            TaskList(
+                tasksInProgress = Task.getTestData(),
+                onTaskClick = { id ->
+                    navController.navigate("task/$id")
+                }
+            )
         }
     }
 }
