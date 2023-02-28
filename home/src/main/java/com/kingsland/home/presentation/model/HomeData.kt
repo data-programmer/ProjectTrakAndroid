@@ -5,4 +5,6 @@ data class HomeData(
     val projects: List<Project>,
     val inProgressTasks: List<Task>,
     val backlogTasks: List<Task>
-)
+) {
+    fun isEmptyState(): Boolean = projects.isEmpty()
+}

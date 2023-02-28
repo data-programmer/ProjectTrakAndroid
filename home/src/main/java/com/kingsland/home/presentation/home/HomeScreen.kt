@@ -8,8 +8,6 @@ import com.kingsland.home.presentation.home.view.HomeError
 import com.kingsland.home.presentation.home.view.HomeLoaded
 import com.kingsland.home.presentation.home.view.HomeLoading
 import com.kingsland.home.presentation.model.HomeState
-import com.kingsland.home.presentation.model.Project
-import com.kingsland.home.presentation.model.Task
 import com.kingsland.home.presentation.viewmodel.HomeViewModel
 
 @Composable
@@ -18,6 +16,9 @@ fun HomeScreen(
     viewModel: HomeViewModel
 ) {
     val homeState = viewModel.homeState.collectAsState()
+    // TODO: Consider a refresh of some type
+    viewModel.getHomeData()
+    // TODO
     when (val state = homeState.value) {
         is HomeState.Loading -> { HomeLoading() }
         is HomeState.Empty -> { HomeEmpty() }

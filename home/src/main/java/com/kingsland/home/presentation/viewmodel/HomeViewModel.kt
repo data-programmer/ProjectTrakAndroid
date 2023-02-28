@@ -25,8 +25,6 @@ class HomeViewModel @Inject constructor(
     private val _homeState = MutableStateFlow<HomeState>(HomeState.Loading)
     val homeState: StateFlow<HomeState> = _homeState
 
-    init { getHomeData() }
-
     fun getHomeData() {
         execute(
             action = {
@@ -39,12 +37,19 @@ class HomeViewModel @Inject constructor(
                 )
             },
             onSuccess = { homeData ->
-                _homeState.value = HomeState.Loaded(
-                    statistics = homeData.statistics,
-                    projects = homeData.projects,
-                    inProgressTasks = homeData.inProgressTasks,
-                    backlogTasks = homeData.backlogTasks
-                )
+                when (homeData.isEmptyState()) {
+                    true -> {
+                        _homeState.value = HomeState.Empty
+                    }
+                    false -> {
+                        _homeState.value = HomeState.Loaded(
+                            statistics = homeData.statistics,
+                            projects = homeData.projects,
+                            inProgressTasks = homeData.inProgressTasks,
+                            backlogTasks = homeData.backlogTasks
+                        )
+                    }
+                }
             },
             onFailure = {
                 _homeState.value = HomeState.Error(it.message ?: "")
