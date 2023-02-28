@@ -9,6 +9,7 @@ fun ProjectDto.convertToSource() = ProjectDomain(
     id = id,
     name = name,
     priority = priority,
+    description = description,
     dateCreated = dateCreated
 )
 
@@ -20,6 +21,7 @@ fun ProjectDomain.convertToSource() = ProjectDto(
     id = id,
     name = name,
     priority = priority,
+    description = description,
     dateCreated = dateCreated
 )
 

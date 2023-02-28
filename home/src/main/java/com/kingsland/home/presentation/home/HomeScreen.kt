@@ -9,7 +9,6 @@ import com.kingsland.home.presentation.home.view.HomeLoaded
 import com.kingsland.home.presentation.home.view.HomeLoading
 import com.kingsland.home.presentation.model.HomeState
 import com.kingsland.home.presentation.model.Project
-import com.kingsland.home.presentation.model.Statistic
 import com.kingsland.home.presentation.model.Task
 import com.kingsland.home.presentation.viewmodel.HomeViewModel
 
@@ -18,21 +17,20 @@ fun HomeScreen(
     navController: NavController,
     viewModel: HomeViewModel
 ) {
-    val state = viewModel.homeState.collectAsState()
-    when (val stateValue = state.value) {
+    val homeState = viewModel.homeState.collectAsState()
+    when (val state = homeState.value) {
         is HomeState.Loading -> { HomeLoading() }
         is HomeState.Empty -> { HomeEmpty() }
         is HomeState.Loaded -> {
-            // TODO: Use stateValue
             HomeLoaded(
-                statistics = Statistic.getTestStats(),
-                projects = Project.getTestData(),
-                tasksInProgress = Task.getTestData(),
-                backlogTasks = Task.getTestData(),
+                statistics = state.statistics,
+                projects = state.projects,
+                tasksInProgress = state.inProgressTasks,
+                backlogTasks = state.backlogTasks,
                 onProjectClick = { id -> navController.navigate("projects/$id") },
                 onTaskClick = { id -> navController.navigate("task/$id") },
             )
         }
-        is HomeState.Error -> { HomeError() }
+        is HomeState.Error -> { HomeError { viewModel.getHomeData() } }
     }
 }

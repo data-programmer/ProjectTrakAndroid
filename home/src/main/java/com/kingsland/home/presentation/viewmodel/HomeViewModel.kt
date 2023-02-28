@@ -3,7 +3,12 @@ package com.kingsland.home.presentation.viewmodel
 import com.kingsland.core.ui.viewmodel.BaseViewModel
 import com.kingsland.home.domain.usecase.ProjectUseCase
 import com.kingsland.home.domain.usecase.TaskUseCase
+import com.kingsland.home.presentation.model.HomeData
 import com.kingsland.home.presentation.model.HomeState
+import com.kingsland.home.presentation.model.Project
+import com.kingsland.home.presentation.model.Statistic
+import com.kingsland.home.presentation.model.Task
+import com.kingsland.home.presentation.model.TaskStatus
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -18,6 +23,31 @@ class HomeViewModel @Inject constructor(
     private val _homeState = MutableStateFlow<HomeState>(HomeState.Loading)
     val homeState: StateFlow<HomeState> = _homeState
 
+    init { getHomeData() }
 
+    fun getHomeData() {
+        execute(
+            action = {
+                _homeState.value = HomeState.Loading
+                HomeData(
+                    statistics = Statistic.getTestStats(),
+                    projects = projectUseCase.getAllProjects(),
+                    inProgressTasks = taskUseCase.getTasksByStatus(TaskStatus.InProgress.ordinal),
+                    backlogTasks = taskUseCase.getTasksByStatus(TaskStatus.Backlog.ordinal)
+                )
+            },
+            onSuccess = { homeData ->
+                _homeState.value = HomeState.Loaded(
+                    statistics = homeData.statistics,
+                    projects = homeData.projects,
+                    inProgressTasks = homeData.inProgressTasks,
+                    backlogTasks = homeData.backlogTasks
+                )
+            },
+            onFailure = {
+                _homeState.value = HomeState.Error(it.message ?: "")
+            }
+        )
+    }
 
 }

@@ -19,6 +19,9 @@ interface TaskDao {
     @Query("select * from Task where contributorId = :contributorId")
     fun getAllTasksByContributorId(contributorId: Int): List<TaskDto>
 
+    @Query("select * from Task where status = :status")
+    fun getTasksByStatus(status: Int): List<TaskDto>
+
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insertTask(taskDto: TaskDto)
 

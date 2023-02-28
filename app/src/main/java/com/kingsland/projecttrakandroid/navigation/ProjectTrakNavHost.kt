@@ -10,7 +10,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.kingsland.contributors.presentation.ContributorsScreen
 import com.kingsland.home.presentation.home.HomeScreen
-import com.kingsland.onboarding.presentation.Onboarding
 import com.kingsland.projects.presentation.ProjectsScreen
 import com.kingsland.projecttrakandroid.model.ScaffoldConfig
 

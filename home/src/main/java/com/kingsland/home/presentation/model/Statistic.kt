@@ -11,7 +11,6 @@ data class Statistic(
     val icon: ImageVector
 ) {
     companion object {
-        @Composable
         fun getTestStats() = listOf(
             Statistic(
                 label = "Tasks Completed",

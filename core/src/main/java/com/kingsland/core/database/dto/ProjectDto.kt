@@ -9,5 +9,6 @@ data class ProjectDto(
     @PrimaryKey val id: Int,
     @ColumnInfo(name = "name") val name: String,
     @ColumnInfo(name = "priority") val priority: Int,
+    @ColumnInfo(name = "description") val description: String,
     @ColumnInfo(name = "dateCreated") val dateCreated: String
 )

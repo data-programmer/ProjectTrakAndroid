@@ -18,7 +18,6 @@ open class BaseViewModel : ViewModel() {
                 .runCatching { action() }
                 .onSuccess { onSuccess(it) }
                 .onFailure { onFailure(it) }
-
         }
     }
 
