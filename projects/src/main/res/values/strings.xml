@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="empty_message">Looks like your home screen is empty. After you create a project, it will appear here.</string>
+    <string name="error_message">Something went wrong. Try again or come back later.</string>
+    <string name="try_again">Try again</string>
+</resources>

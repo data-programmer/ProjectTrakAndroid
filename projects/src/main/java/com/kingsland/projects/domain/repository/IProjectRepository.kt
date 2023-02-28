@@ -3,9 +3,9 @@ package com.kingsland.projects.domain.repository
 import com.kingsland.projects.domain.model.ProjectDomain
 
 interface IProjectRepository {
-    suspend fun getAllProjects(): List<ProjectDomain>
-    suspend fun getProjectById(projectId: Int): ProjectDomain
-    suspend fun insertProject(project: ProjectDomain)
-    suspend fun updateProject(project: ProjectDomain)
-    suspend fun deleteProject(project: ProjectDomain)
+    fun getAllProjects(): List<ProjectDomain>
+    fun getProjectById(projectId: Int): ProjectDomain
+    fun insertProject(project: ProjectDomain)
+    fun updateProject(project: ProjectDomain)
+    fun deleteProject(project: ProjectDomain)
 }

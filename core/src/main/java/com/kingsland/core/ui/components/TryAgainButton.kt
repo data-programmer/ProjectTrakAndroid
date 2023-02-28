@@ -1,4 +1,4 @@
-package com.kingsland.home.presentation.home.component
+package com.kingsland.core.ui.components
 
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.Button

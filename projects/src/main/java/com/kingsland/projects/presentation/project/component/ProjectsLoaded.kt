@@ -1,23 +1,22 @@
-package com.kingsland.projects.presentation
+package com.kingsland.projects.presentation.project.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
-import androidx.navigation.compose.rememberNavController
 import com.kingsland.core.ui.components.ProjectCard
+import com.kingsland.projects.presentation.model.Project
 
 @Composable
-fun ProjectsScreen(
-    navController: NavController
+fun ProjectsLoaded(
+    projects: List<Project>,
+    onProjectClick: (Int) -> Unit = { }
 ) {
-    // TODO: Get Projects
-    val projects = Project.getTestProjects()
     LazyVerticalGrid(
         modifier = Modifier.fillMaxWidth(),
         columns = GridCells.Fixed(2),
@@ -26,12 +25,10 @@ fun ProjectsScreen(
     ) {
         items(projects) { project ->
             ProjectCard(
-                name = project.name,
-                desc = "",
+                name = project.title,
+                desc = project.description,
                 dateCreated =  project.dateCreated,
-                onClick = {
-                    // TODO: Nav to project detail
-                }
+                onClick = { onProjectClick(project.id) }
             )
         }
     }
@@ -39,6 +36,8 @@ fun ProjectsScreen(
 
 @Composable
 @Preview(showBackground = true)
-fun ProjectsScreenPreview() {
-    ProjectsScreen(rememberNavController())
+fun ProjectsLoadedPreview() {
+    ProjectsLoaded(
+        projects = listOf()
+    )
 }

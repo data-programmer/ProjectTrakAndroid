@@ -9,9 +9,9 @@ import com.kingsland.projects.domain.repository.IProjectRepository
 class ProjectRepository(
     private val projectDataSource: ProjectDataSource
 ) : IProjectRepository {
-    override suspend fun getAllProjects(): List<ProjectDomain> = projectDataSource.getAllProjects().convertProjectDtoToDomain()
-    override suspend fun getProjectById(projectId: Int): ProjectDomain = projectDataSource.getProjectById(projectId).convertToDomain()
-    override suspend fun insertProject(project: ProjectDomain) { projectDataSource.insertProject(project.convertToDomain()) }
-    override suspend fun updateProject(project: ProjectDomain) { projectDataSource.updateProject(project.convertToDomain()) }
-    override suspend fun deleteProject(project: ProjectDomain) { projectDataSource.deleteProject(project.convertToDomain()) }
+    override fun getAllProjects(): List<ProjectDomain> = projectDataSource.getAllProjects().convertProjectDtoToDomain()
+    override fun getProjectById(projectId: Int): ProjectDomain = projectDataSource.getProjectById(projectId).convertToDomain()
+    override fun insertProject(project: ProjectDomain) { projectDataSource.insertProject(project.convertToDomain()) }
+    override fun updateProject(project: ProjectDomain) { projectDataSource.updateProject(project.convertToDomain()) }
+    override fun deleteProject(project: ProjectDomain) { projectDataSource.deleteProject(project.convertToDomain()) }
 }

@@ -1,4 +1,4 @@
-package com.kingsland.home.presentation.home.view
+package com.kingsland.core.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -12,7 +12,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun HomeLoading() {
+fun Loading() {
     Column(
         modifier = Modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
@@ -29,5 +29,5 @@ fun HomeLoading() {
 @Composable
 @Preview(showBackground = true)
 fun HomeLoadingPreview() {
-    HomeLoading()
+    Loading()
 }

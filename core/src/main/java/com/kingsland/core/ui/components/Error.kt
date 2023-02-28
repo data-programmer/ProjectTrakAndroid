@@ -1,4 +1,4 @@
-package com.kingsland.home.presentation.home.view
+package com.kingsland.core.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -13,15 +13,16 @@ import androidx.compose.material.icons.filled.Close
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import com.kingsland.home.R
-import com.kingsland.home.presentation.home.component.TryAgainButton
 
 @Composable
-fun HomeError(
+fun Error(
+    imageVector: ImageVector,
+    message: String,
+    buttonText: String,
     onClick: () -> Unit = { }
 ) {
     Column(
@@ -29,20 +30,19 @@ fun HomeError(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        // TODO: Place icon here
         Icon(
             modifier = Modifier.size(60.dp),
-            imageVector = Icons.Filled.Close,
+            imageVector = imageVector,
             contentDescription = null
         )
         Text(
             modifier = Modifier.padding(vertical = 18.dp),
-            text = stringResource(R.string.error_message),
+            text = message,
             style = MaterialTheme.typography.body1,
             textAlign = TextAlign.Center
         )
         TryAgainButton(
-            buttonText = stringResource(R.string.try_again),
+            buttonText = buttonText,
             onClick = onClick
         )
     }
@@ -51,5 +51,9 @@ fun HomeError(
 @Composable
 @Preview(showBackground = true)
 fun HomeErrorPreview() {
-    HomeError()
+    Error(
+        imageVector = Icons.Filled.Close,
+        message = "",
+        buttonText = ""
+    )
 }
