@@ -8,7 +8,7 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.kingsland.contributors.presentation.ContributorsScreen
+import com.kingsland.contributors.presentation.contributor.ContributorsScreen
 import com.kingsland.home.presentation.home.HomeScreen
 import com.kingsland.projects.presentation.project.ProjectsScreen
 import com.kingsland.projecttrakandroid.model.ScaffoldConfig
@@ -40,6 +40,7 @@ fun ProjectTrakNavHost(
         composable(Screen.Contributors.route) {
             ContributorsScreen(
                 navController = navController,
+                viewModel = hiltViewModel()
             )
         }
     }

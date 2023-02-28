@@ -27,7 +27,7 @@ fun InProgressTaskList(
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = stringResource(R.string.in_progress),
+            text = stringResource(R.string.home_in_progress),
             style = MaterialTheme.typography.h5
         )
         LazyRow(

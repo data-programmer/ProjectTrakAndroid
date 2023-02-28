@@ -27,7 +27,7 @@ fun ProjectsList(
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = stringResource(R.string.your_projects),
+            text = stringResource(R.string.home_your_projects),
             style = MaterialTheme.typography.h5
         )
         LazyRow(

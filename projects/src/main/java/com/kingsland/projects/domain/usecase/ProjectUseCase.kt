@@ -6,8 +6,9 @@ import com.kingsland.projects.convertToDomain
 import com.kingsland.projects.domain.model.ProjectDomain
 import com.kingsland.projects.domain.repository.IProjectRepository
 import com.kingsland.projects.presentation.model.Project
+import javax.inject.Inject
 
-class ProjectUseCase(
+class ProjectUseCase @Inject constructor(
     private val projectRepository: IProjectRepository
 ) {
     fun getAllProjects(): List<Project> = projectRepository.getAllProjects().convertProjectDomainToAndroid()

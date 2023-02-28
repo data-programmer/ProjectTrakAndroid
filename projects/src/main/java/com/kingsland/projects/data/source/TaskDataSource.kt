@@ -2,8 +2,9 @@ package com.kingsland.projects.data.source
 
 import com.kingsland.core.database.dao.TaskDao
 import com.kingsland.core.database.dto.TaskDto
+import javax.inject.Inject
 
-class TaskDataSource(
+class TaskDataSource @Inject constructor(
     private val taskDao: TaskDao
 ) {
     fun getAllTasks(): List<TaskDto> = taskDao.getAllTasks()

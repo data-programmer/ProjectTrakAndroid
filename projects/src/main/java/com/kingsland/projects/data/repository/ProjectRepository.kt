@@ -5,8 +5,9 @@ import com.kingsland.projects.convertToDomain
 import com.kingsland.projects.data.source.ProjectDataSource
 import com.kingsland.projects.domain.model.ProjectDomain
 import com.kingsland.projects.domain.repository.IProjectRepository
+import javax.inject.Inject
 
-class ProjectRepository(
+class ProjectRepository @Inject constructor(
     private val projectDataSource: ProjectDataSource
 ) : IProjectRepository {
     override fun getAllProjects(): List<ProjectDomain> = projectDataSource.getAllProjects().convertProjectDtoToDomain()

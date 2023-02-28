@@ -5,8 +5,9 @@ import com.kingsland.contributors.convertToSource
 import com.kingsland.contributors.data.source.ContributorDataSource
 import com.kingsland.contributors.domain.model.ContributorDomain
 import com.kingsland.contributors.domain.repository.IContributorRepository
+import javax.inject.Inject
 
-class ContributorRepository(
+class ContributorRepository @Inject constructor(
     private val contributorDataSource: ContributorDataSource
 ) : IContributorRepository {
     override fun getAllContributors(): List<ContributorDomain> = contributorDataSource.getAllContributors().convertToContributorDomain()

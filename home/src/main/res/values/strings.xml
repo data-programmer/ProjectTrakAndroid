@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="your_projects">Your projects</string>
-    <string name="in_progress">In progress</string>
-    <string name="backlog">Backlog</string>
-    <string name="empty_message">Looks like your home screen is empty. After you create a project, it will appear here.</string>
-    <string name="error_message">Something went wrong. Try again or come back later.</string>
-    <string name="try_again">Try again</string>
+    <string name="home_your_projects">Your projects</string>
+    <string name="home_in_progress">In progress</string>
+    <string name="home_backlog">Backlog</string>
+    <string name="home_empty_message">Looks like your home screen is empty. After you create a project, it will appear here.</string>
+    <string name="home_error_message">Something went wrong. Try again or come back later.</string>
+    <string name="home_try_again">Try again</string>
 </resources>

@@ -5,8 +5,9 @@ import com.kingsland.projects.convertToDomain
 import com.kingsland.projects.domain.model.TaskDomain
 import com.kingsland.projects.domain.repository.ITaskRepository
 import com.kingsland.projects.presentation.model.Task
+import javax.inject.Inject
 
-class TaskUseCase(
+class TaskUseCase @Inject constructor(
     private val taskRepository: ITaskRepository
 ) {
     suspend fun getAllTasks(): List<Task> = taskRepository.getAllTasks().convertTaskDomainToAndroid()

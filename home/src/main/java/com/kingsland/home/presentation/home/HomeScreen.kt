@@ -10,7 +10,7 @@ import androidx.navigation.NavController
 import com.kingsland.core.ui.components.Empty
 import com.kingsland.home.R
 import com.kingsland.core.ui.components.Error
-import com.kingsland.home.presentation.home.view.HomeLoaded
+import com.kingsland.home.presentation.home.component.HomeLoaded
 import com.kingsland.core.ui.components.Loading
 import com.kingsland.home.presentation.model.HomeState
 import com.kingsland.home.presentation.viewmodel.HomeViewModel
@@ -29,7 +29,7 @@ fun HomeScreen(
         is HomeState.Empty -> {
             Empty(
                 imageVector = Icons.Filled.Create,
-                message = stringResource(R.string.empty_message)
+                message = stringResource(R.string.home_empty_message)
             )
         }
         is HomeState.Loaded -> {
@@ -45,8 +45,8 @@ fun HomeScreen(
         is HomeState.Error -> {
             Error(
                 imageVector = Icons.Filled.Close,
-                message = stringResource(R.string.error_message),
-                buttonText = stringResource(R.string.try_again),
+                message = stringResource(R.string.home_error_message),
+                buttonText = stringResource(R.string.home_try_again),
                 onClick = { viewModel.getHomeData() }
             )
         }

@@ -26,7 +26,7 @@ fun BacklogTaskList(
         horizontalAlignment = Alignment.Start
     ) {
         Text(
-            text = stringResource(R.string.backlog),
+            text = stringResource(R.string.home_backlog),
             style = MaterialTheme.typography.h5
         )
         LazyRow(
