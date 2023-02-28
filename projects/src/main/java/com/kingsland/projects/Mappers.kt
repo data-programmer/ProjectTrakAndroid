@@ -4,32 +4,55 @@ import com.kingsland.core.database.dto.ProjectDto
 import com.kingsland.core.database.dto.TaskDto
 import com.kingsland.projects.domain.model.ProjectDomain
 import com.kingsland.projects.domain.model.TaskDomain
+import com.kingsland.projects.presentation.model.Project
+import com.kingsland.projects.presentation.model.Task
 
-fun ProjectDto.convertToSource() = ProjectDomain(
+fun ProjectDto.convertToDomain() = ProjectDomain(
     id = id,
-    name = name,
+    title = name,
     priority = priority,
     description = description,
     dateCreated = dateCreated
 )
 
 fun List<ProjectDto>.convertProjectDtoToDomain() = map {
-    it.convertToSource()
+    it.convertToDomain()
 }
 
-fun ProjectDomain.convertToSource() = ProjectDto(
+fun ProjectDomain.convertToDomain() = ProjectDto(
     id = id,
-    name = name,
+    name = title,
     priority = priority,
     description = description,
     dateCreated = dateCreated
 )
 
-fun TaskDto.convertToSource() = TaskDomain(
+fun Project.convertToDomain() = ProjectDomain(
+    id = id,
+    title = title,
+    priority = priority,
+    description = description,
+    dateCreated = dateCreated
+)
+
+fun ProjectDomain.convertToAndroid() = Project(
+    id = id,
+    title = title,
+    priority = priority,
+    description = description,
+    dateCreated = dateCreated
+)
+
+fun List<ProjectDomain>.convertProjectDomainToAndroid() = map {
+    it.convertToAndroid()
+}
+
+
+fun TaskDto.convertToDomain() = TaskDomain(
     id = id,
     title = title,
     date = date,
-    text = text,
+    description = text,
     priority = priority,
     statusDomain = status,
     projectId = projectId,
@@ -37,14 +60,40 @@ fun TaskDto.convertToSource() = TaskDomain(
 )
 
 fun List<TaskDto>.convertTaskDtoToDomain() = map {
-    it.convertToSource()
+    it.convertToDomain()
 }
 
-fun TaskDomain.convertToSource() = TaskDto(
+fun TaskDomain.convertToAndroid() = Task(
+    id = id,
+    title = title,
+    dateCreated = date,
+    description = description,
+    priority = priority,
+    status = statusDomain,
+    projectId = projectId,
+    contributorId = contributorId
+)
+
+fun List<TaskDomain>.convertTaskDomainToAndroid() = map {
+    it.convertToAndroid()
+}
+
+fun Task.convertToDomain() = TaskDomain(
+    id = id,
+    title = title,
+    date = dateCreated,
+    description = description,
+    priority = priority,
+    statusDomain = status,
+    projectId = projectId,
+    contributorId = contributorId
+)
+
+fun TaskDomain.convertToDomain() = TaskDto(
     id = id,
     title = title,
     date = date,
-    text = text,
+    text = description,
     priority = priority,
     status = statusDomain,
     projectId = projectId,

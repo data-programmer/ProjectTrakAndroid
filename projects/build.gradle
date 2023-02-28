@@ -13,6 +13,8 @@ dependencies {
     implementation libs.core
     implementation libs.lifecycle.runtime
     implementation libs.bundles.compose
+    implementation libs.hilt.android
+    kapt libs.hilt.kapt
     implementation libs.junit.impl
     implementation project(":core")
     implementation project(":theme")

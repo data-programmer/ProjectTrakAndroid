@@ -38,9 +38,7 @@ class HomeViewModel @Inject constructor(
             },
             onSuccess = { homeData ->
                 when (homeData.isEmptyState()) {
-                    true -> {
-                        _homeState.value = HomeState.Empty
-                    }
+                    true -> { _homeState.value = HomeState.Empty }
                     false -> {
                         _homeState.value = HomeState.Loaded(
                             statistics = homeData.statistics,
