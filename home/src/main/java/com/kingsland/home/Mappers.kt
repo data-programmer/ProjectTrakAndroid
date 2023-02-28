@@ -1,10 +1,14 @@
 package com.kingsland.home
 
+import androidx.compose.ui.graphics.vector.ImageVector
 import com.kingsland.home.domain.model.TaskDomain
 import com.kingsland.home.domain.model.ProjectDomain
 import com.kingsland.core.database.dto.ProjectDto
+import com.kingsland.core.database.dto.StatisticDto
 import com.kingsland.core.database.dto.TaskDto
+import com.kingsland.home.domain.model.StatisticDomain
 import com.kingsland.home.presentation.model.Project
+import com.kingsland.home.presentation.model.Statistic
 import com.kingsland.home.presentation.model.Task
 
 fun ProjectDto.convertToSource() = ProjectDomain(
@@ -97,4 +101,25 @@ fun TaskDomain.convertToAndroid() = Task(
 
 fun List<TaskDomain>.convertTaskDomainToAndroid() = map {
     it.convertToAndroid()
+}
+
+fun StatisticDto.convertToDomain() = StatisticDomain(
+    label = label,
+    data = data
+)
+
+fun StatisticDomain.convertToAndroid(icon: ImageVector) = Statistic(
+    label = label,
+    data = data,
+    icon = icon
+)
+
+fun List<StatisticDto>.convertStatisticDtoToDomain() = map {
+    it.convertToDomain()
+}
+
+fun List<StatisticDomain>.convertStatisticDomainToAndroid(
+    iconList: List<ImageVector>
+) = mapIndexed { index, statisticDomain ->
+    statisticDomain.convertToAndroid(icon = iconList[index])
 }

@@ -2,6 +2,7 @@ package com.kingsland.home.presentation.viewmodel
 
 import com.kingsland.core.ui.viewmodel.BaseViewModel
 import com.kingsland.home.domain.usecase.ProjectUseCase
+import com.kingsland.home.domain.usecase.StatisticUseCase
 import com.kingsland.home.domain.usecase.TaskUseCase
 import com.kingsland.home.presentation.model.HomeData
 import com.kingsland.home.presentation.model.HomeState
@@ -16,6 +17,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor(
+    private val statisticUseCase: StatisticUseCase,
     private val projectUseCase: ProjectUseCase,
     private val taskUseCase: TaskUseCase
 ) : BaseViewModel() {
@@ -30,7 +32,7 @@ class HomeViewModel @Inject constructor(
             action = {
                 _homeState.value = HomeState.Loading
                 HomeData(
-                    statistics = Statistic.getTestStats(),
+                    statistics = statisticUseCase.getAllStatistics(),
                     projects = projectUseCase.getAllProjects(),
                     inProgressTasks = taskUseCase.getTasksByStatus(TaskStatus.InProgress.ordinal),
                     backlogTasks = taskUseCase.getTasksByStatus(TaskStatus.Backlog.ordinal)

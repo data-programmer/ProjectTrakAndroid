@@ -4,7 +4,9 @@ import android.content.Context
 import com.kingsland.core.database.ProjectTrakDatabase
 import com.kingsland.core.database.dao.ContributorDao
 import com.kingsland.core.database.dao.ProjectDao
+import com.kingsland.core.database.dao.StatisticDao
 import com.kingsland.core.database.dao.TaskDao
+import com.kingsland.home.presentation.model.Statistic
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -39,4 +41,10 @@ object DatabaseModule {
     fun provideContributorDao(
         database: ProjectTrakDatabase
     ): ContributorDao = database.contributorDao()
+
+    @Singleton
+    @Provides
+    fun provideStatisticDao(
+        database: ProjectTrakDatabase
+    ): StatisticDao = database.statisticDao()
 }
