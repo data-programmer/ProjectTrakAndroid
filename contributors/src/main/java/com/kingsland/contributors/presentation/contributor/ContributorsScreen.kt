@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Create
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.kingsland.contributors.R
 import com.kingsland.contributors.presentation.contributor.component.ContributorLoaded
@@ -18,10 +19,9 @@ import com.kingsland.core.ui.components.Error
 @Composable
 fun ContributorsScreen(
     navController: NavController,
-    viewModel: ContributorViewModel
+    viewModel: ContributorViewModel = hiltViewModel()
 ) {
     val contributorState = viewModel.contributorState.collectAsState()
-    viewModel.getContributors()
     when (val state = contributorState.value) {
         is ContributorState.Loading -> { Loading() }
         is ContributorState.Empty -> {

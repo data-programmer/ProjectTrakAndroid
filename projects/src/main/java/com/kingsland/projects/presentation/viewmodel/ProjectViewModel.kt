@@ -16,6 +16,10 @@ class ProjectViewModel @Inject constructor(
     private val _projectState = MutableStateFlow<ProjectState>(ProjectState.Loading)
     val projectState: StateFlow<ProjectState> = _projectState
 
+    init {
+        getProjects()
+    }
+
     fun getProjects() {
         execute(
             action = {

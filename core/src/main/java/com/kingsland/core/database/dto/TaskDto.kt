@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Task")
 data class TaskDto(
-    @PrimaryKey val id: Int,
+    @PrimaryKey(autoGenerate = true) val id: Int,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "date") val date: String,
     @ColumnInfo(name = "text") val text: String,

@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.kingsland.core.ui.components.Empty
 import com.kingsland.core.ui.components.Error
@@ -18,10 +19,9 @@ import com.kingsland.projects.presentation.viewmodel.ProjectViewModel
 @Composable
 fun ProjectsScreen(
     navController: NavController,
-    viewModel: ProjectViewModel
+    viewModel: ProjectViewModel = hiltViewModel()
 ) {
     val projectState = viewModel.projectState.collectAsState()
-    viewModel.getProjects()
     when (val state = projectState.value) {
         is ProjectState.Loading -> { Loading() }
         is ProjectState.Empty -> {

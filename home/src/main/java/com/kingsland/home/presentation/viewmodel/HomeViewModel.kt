@@ -25,6 +25,10 @@ class HomeViewModel @Inject constructor(
     private val _homeState = MutableStateFlow<HomeState>(HomeState.Loading)
     val homeState: StateFlow<HomeState> = _homeState
 
+    init {
+        getHomeData()
+    }
+
     fun getHomeData() {
         execute(
             action = {

@@ -14,6 +14,7 @@ dependencies {
     implementation libs.core
     implementation libs.lifecycle.runtime
     implementation libs.bundles.compose
+    implementation libs.hilt.viewmodel
     implementation libs.hilt.android
     kapt libs.hilt.kapt
     implementation libs.junit.impl

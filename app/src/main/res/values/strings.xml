@@ -3,4 +3,6 @@
     <string name="screen_home">Home</string>
     <string name="screen_project">Projects</string>
     <string name="screen_contributor">Contributor</string>
+    <string name="screen_detail">Detail</string>
+    <string name="screen_edit">Edit</string>
 </resources>

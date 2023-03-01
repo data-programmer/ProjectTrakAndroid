@@ -16,6 +16,10 @@ class ContributorViewModel @Inject constructor(
     private val _contributorState = MutableStateFlow<ContributorState>(ContributorState.Loading)
     val contributorState: StateFlow<ContributorState> = _contributorState
 
+    init {
+        getContributors()
+    }
+
     fun getContributors() {
         execute(
             action = {

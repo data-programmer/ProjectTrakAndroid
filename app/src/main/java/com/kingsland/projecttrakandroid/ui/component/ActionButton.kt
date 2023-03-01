@@ -1,5 +1,6 @@
 package com.kingsland.projecttrakandroid.ui.component
 
+import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.FloatingActionButton
 import androidx.compose.material.FloatingActionButtonDefaults
@@ -16,7 +17,9 @@ fun ActionButton(
     isVisible: Boolean,
     onClick: () -> Unit = { }
 ) {
-    if (isVisible) {
+    AnimatedVisibility(
+        visible = isVisible
+    ) {
         FloatingActionButton(
             onClick = onClick,
             shape = CircleShape,

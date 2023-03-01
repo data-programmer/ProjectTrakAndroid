@@ -11,8 +11,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.rememberNavController
-import com.kingsland.projecttrakandroid.model.ScaffoldConfig
+import com.kingsland.projecttrakandroid.model.ScaffoldState
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakAppBar
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakBottomNav
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakNavHost
@@ -36,7 +37,8 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ProjectTrakScaffold() {
     val navController = rememberNavController()
-    val scaffoldConfig = remember { mutableStateOf(ScaffoldConfig()) }
+    val scaffoldState = remember { mutableStateOf(ScaffoldState()) }
+    val context = LocalContext.current
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
@@ -49,8 +51,8 @@ fun ProjectTrakScaffold() {
         bottomBar = { ProjectTrakBottomNav(navController) },
         floatingActionButton = {
             ActionButton(
-                isVisible = scaffoldConfig.value.isFloatingActionButtonVisible,
-                onClick = scaffoldConfig.value.floatingActionButtonAction
+                isVisible = scaffoldState.value.isFloatingActionButtonVisible,
+                onClick = scaffoldState.value.floatingActionButtonAction
             )
         },
         backgroundColor = MaterialTheme.colors.background,
@@ -58,8 +60,7 @@ fun ProjectTrakScaffold() {
         ProjectTrakNavHost(
             modifier = Modifier.padding(paddingValues),
             navController = navController,
-            // TODO: Figure this out later
-            scaffoldConfig = scaffoldConfig.value,
+            scaffoldState = scaffoldState,
         )
     }
 }

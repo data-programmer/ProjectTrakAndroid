@@ -6,6 +6,7 @@ import androidx.compose.material.icons.filled.Create
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.kingsland.core.ui.components.Empty
 import com.kingsland.home.R
@@ -18,12 +19,9 @@ import com.kingsland.home.presentation.viewmodel.HomeViewModel
 @Composable
 fun HomeScreen(
     navController: NavController,
-    viewModel: HomeViewModel
+    viewModel: HomeViewModel = hiltViewModel()
 ) {
     val homeState = viewModel.homeState.collectAsState()
-    // TODO: Consider a refresh of some type
-    viewModel.getHomeData()
-    // TODO
     when (val state = homeState.value) {
         is HomeState.Loading -> { Loading() }
         is HomeState.Empty -> {
