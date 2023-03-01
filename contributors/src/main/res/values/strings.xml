@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="contributor_try_again">Try again</string>
+    <string name="contributor_empty_message">Looks like there are no other contributors. Create some here.</string>
+    <string name="contributor_error_message">Something went wrong. Try again or come back later.</string>
+</resources>

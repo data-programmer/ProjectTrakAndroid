@@ -23,7 +23,7 @@ fun HomeLoaded(
     LazyColumn(
         contentPadding = PaddingValues(vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(12.dp)
-    ){
+    ) {
         item {
             StatsLayout(statisticList = statistics)
         }
