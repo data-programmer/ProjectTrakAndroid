@@ -38,7 +38,7 @@ fun ProjectTrakNavHost(
         composable(Screen.Projects.route) {
             // TODO: Pass this to composable
             scaffoldState.value = ScaffoldState(
-                floatingActionButtonAction = { navController.navigate("${Screen.EditProject.route}/-1") }
+                floatingActionButtonAction = { /* navController.navigate("${Screen.EditProject.route}/-1") */ }
             )
             ProjectsScreen(navController = navController)
         }
@@ -48,23 +48,24 @@ fun ProjectTrakNavHost(
             )
             ContributorsScreen(navController = navController)
         }
-        composable(
-            route = "${Screen.EditProject.route}/{projectId}",
-            arguments = listOf(
-                navArgument(name = "projectId") {
-                    type = NavType.IntType
-                    defaultValue = -1
-                }
-            ),
-        ) { backStackEntry ->
-            val projectId = backStackEntry.arguments?.getInt("projectId") ?: -1
-            scaffoldState.value = ScaffoldState(
-                isFloatingActionButtonVisible = false
-            )
-            ProjectEditScreen(
-                projectId = projectId,
-                navController = navController
-            )
-        }
+        // TODO: Might need to use nested graph navigation for projects
+//        composable(
+//            route = "${Screen.EditProject.route}/{projectId}",
+//            arguments = listOf(
+//                navArgument(name = "projectId") {
+//                    type = NavType.IntType
+//                    defaultValue = -1
+//                }
+//            ),
+//        ) { backStackEntry ->
+//            val projectId = backStackEntry.arguments?.getInt("projectId") ?: -1
+//            scaffoldState.value = ScaffoldState(
+//                isFloatingActionButtonVisible = false
+//            )
+//            ProjectEditScreen(
+//                projectId = projectId,
+//                navController = navController
+//            )
+//        }
     }
 }

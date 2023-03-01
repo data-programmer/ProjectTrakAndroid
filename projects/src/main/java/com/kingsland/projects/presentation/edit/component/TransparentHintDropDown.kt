@@ -1,7 +1,6 @@
 package com.kingsland.projects.presentation.edit.component
 
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.DropdownMenuItem
@@ -21,7 +20,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusState
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
-import androidx.compose.ui.unit.dp
 import com.kingsland.projects.R
 
 @OptIn(ExperimentalMaterialApi::class)
@@ -38,6 +36,7 @@ fun TransparentHintDropDown(
         expanded = expanded,
         onExpandedChange = { expanded = !expanded }
     ) {
+        // TODO: Need to change this
         TransparentHintTextField(
             text = selectedOptionText,
             hint = stringResource(R.string.pro_detail_priority_hint),
