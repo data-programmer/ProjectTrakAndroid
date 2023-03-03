@@ -2,10 +2,8 @@ package com.kingsland.projecttrakandroid.navigation
 
 import androidx.annotation.StringRes
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Build
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material.icons.filled.Create
 import androidx.compose.material.icons.filled.Home
 import androidx.compose.ui.graphics.vector.ImageVector
 import com.kingsland.projecttrakandroid.R
@@ -29,15 +27,5 @@ sealed class Screen (
         route = "contributors",
         icon = Icons.Filled.Check,
         resourceId = R.string.screen_contributor
-    )
-    object ProjectDetail : Screen(
-        route = "project",
-        icon = Icons.Filled.Add,
-        resourceId = R.string.screen_detail
-    )
-    object EditProject : Screen(
-        route = "edit",
-        icon = Icons.Filled.Create,
-        resourceId = R.string.screen_edit
     )
 }

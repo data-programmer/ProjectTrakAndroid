@@ -1,4 +1,4 @@
-package com.kingsland.projects.presentation.project
+package com.kingsland.projects.presentation.list
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Close
@@ -13,11 +13,11 @@ import com.kingsland.core.ui.components.Error
 import com.kingsland.core.ui.components.Loading
 import com.kingsland.projects.R
 import com.kingsland.projects.presentation.model.ProjectState
-import com.kingsland.projects.presentation.project.component.ProjectsLoaded
+import com.kingsland.projects.presentation.list.component.ProjectsLoaded
 import com.kingsland.projects.presentation.viewmodel.ProjectViewModel
 
 @Composable
-fun ProjectsScreen(
+fun ProjectList(
     navController: NavController,
     viewModel: ProjectViewModel = hiltViewModel()
 ) {

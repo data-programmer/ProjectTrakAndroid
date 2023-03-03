@@ -1,4 +1,4 @@
-package com.kingsland.projects.presentation.project.component
+package com.kingsland.projects.presentation.list.component
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.fillMaxWidth
