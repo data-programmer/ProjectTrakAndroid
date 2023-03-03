@@ -1,9 +1,10 @@
 package com.kingsland.projects.presentation.viewmodel
 
+import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import com.kingsland.core.ui.viewmodel.BaseViewModel
 import com.kingsland.projects.domain.usecase.ProjectUseCase
-import com.kingsland.projects.presentation.model.ProjectDetailState
+import com.kingsland.projects.presentation.model.ProjectEditState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
@@ -12,11 +13,18 @@ import javax.inject.Inject
 @HiltViewModel
 class ProjectDetailViewModel @Inject constructor(
     private val projectUseCase: ProjectUseCase,
-    private val savedStateHandle: SavedStateHandle
+    savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
 
-    private val _projectDetailState = MutableStateFlow<ProjectDetailState>(ProjectDetailState.Loading)
-    val projectDetailState: StateFlow<ProjectDetailState> = _projectDetailState
+    private val _projectEditState = MutableStateFlow<ProjectEditState>(ProjectEditState.Loading)
+    val projectEditState: StateFlow<ProjectEditState> = _projectEditState
+
+    val title = mutableStateOf("")
+    val isTitleHintVisible = mutableStateOf(false)
+    val priority = mutableStateOf("")
+    val isPriorityHintVisible = mutableStateOf(false)
+    val description = mutableStateOf("")
+    val isDescriptionHintVisible = mutableStateOf(false)
 
     private val _hasProjectBeenSaved = MutableStateFlow(false)
     val hasProjectBeenSaved: StateFlow<Boolean> = _hasProjectBeenSaved
@@ -29,7 +37,7 @@ class ProjectDetailViewModel @Inject constructor(
                 this.existingProjectId = projectId
                 getProjectById(projectId)
             } else {
-                _projectDetailState.value = ProjectDetailState.Edit()
+                _projectEditState.value = ProjectEditState.Edit
             }
         }
     }
@@ -38,16 +46,34 @@ class ProjectDetailViewModel @Inject constructor(
         execute(
             action = { projectUseCase.getProjectById(projectId) },
             onSuccess = { project ->
-                _projectDetailState.value = ProjectDetailState.Edit(
-                    title = project.title,
-                    priority = project.priority,
-                    description = project.description,
-                    dateCreated = project.dateCreated
-                )
+                _projectEditState.value = ProjectEditState.Edit
+                title.value = project.title
+                priority.value = project.priority.toString()
+                description.value = project.description
             },
             onFailure = {
-                _projectDetailState.value = ProjectDetailState.Error(it.message ?: "")
+                _projectEditState.value = ProjectEditState.Error(it.message ?: "")
             }
+        )
+    }
+
+    fun onTitleFocusChange(isFocused: Boolean) {
+        isTitleHintVisible.value = title.value.isEmpty() && !isFocused
+    }
+
+    fun onPriorityFocusChange(isFocused: Boolean) {
+        isPriorityHintVisible.value = priority.value.isEmpty() && !isFocused
+    }
+
+    fun onDescriptionFocusChange(isFocused: Boolean) {
+        isDescriptionHintVisible.value = description.value.isEmpty() && !isFocused
+    }
+
+    fun saveProject() {
+        execute(
+            action = {  },
+            onSuccess = {  },
+            onFailure = {  }
         )
     }
 

@@ -5,7 +5,7 @@
     <string name="pro_try_again">Try again</string>
     <string name="pro_detail_go_back">Go back</string>
     <string name="pro_detail_error_message">Something went wrong. Try again or come back later.</string>
-    <string name="pro_detail_title_hint">Enter a project title here…</string>
-    <string name="pro_detail_priority_hint">Enter project priority here…</string>
-    <string name="pro_detail_description_hint">Enter a project description here…</string>
+    <string name="pro_detail_title_hint">Project title</string>
+    <string name="pro_detail_priority_hint">Project priority</string>
+    <string name="pro_detail_description_hint">Project description</string>
 </resources>

@@ -11,7 +11,7 @@ import com.kingsland.core.ui.components.Error
 import com.kingsland.core.ui.components.Loading
 import com.kingsland.projects.R
 import com.kingsland.projects.presentation.edit.component.ProjectEdit
-import com.kingsland.projects.presentation.model.ProjectDetailState
+import com.kingsland.projects.presentation.model.ProjectEditState
 import com.kingsland.projects.presentation.viewmodel.ProjectDetailViewModel
 
 @Composable
@@ -20,16 +20,11 @@ fun ProjectEditScreen(
     navController: NavController,
     viewModel: ProjectDetailViewModel = hiltViewModel()
 ) {
-    val projectDetailState = viewModel.projectDetailState.collectAsState()
-    when (val state = projectDetailState.value) {
-        is ProjectDetailState.Loading -> { Loading() }
-        is ProjectDetailState.Edit -> {
-            ProjectEdit(
-                state = state,
-                viewModel = viewModel
-            )
-        }
-        is ProjectDetailState.Error -> {
+    val projectDetailState = viewModel.projectEditState.collectAsState()
+    when (projectDetailState.value) {
+        is ProjectEditState.Loading -> { Loading() }
+        is ProjectEditState.Edit -> { ProjectEdit(viewModel = viewModel) }
+        is ProjectEditState.Error -> {
             Error(
                 imageVector = Icons.Filled.Close,
                 message = stringResource(R.string.pro_detail_error_message),
