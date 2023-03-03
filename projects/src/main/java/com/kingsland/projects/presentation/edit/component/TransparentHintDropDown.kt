@@ -4,36 +4,56 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material.DropdownMenuItem
 import androidx.compose.material.ExperimentalMaterialApi
 import androidx.compose.material.ExposedDropdownMenuBox
+import androidx.compose.material.ExposedDropdownMenuDefaults
+import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
+import androidx.compose.material.TextField
+import androidx.compose.material.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.tooling.preview.Preview
-import com.kingsland.projects.R
+import androidx.compose.ui.unit.sp
+import com.kingsland.projects.presentation.model.ProjectPriority
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun TransparentHintDropDown(
     modifier: Modifier = Modifier,
-    onValueChanged: (String) -> Unit,
+    text: String,
+    label: String,
+    textStyle: TextStyle = TextStyle(fontSize = 16.sp),
+    onValueChanged: (String) -> Unit = { },
 ) {
-    val options = listOf("", "High", "Medium-High", "Medium", "Medium-Low", "Low")
+    val options = ProjectPriority.getProjectPriority()
     var expanded by remember { mutableStateOf(false) }
-    var selectedOptionText by remember { mutableStateOf(options[0]) }
+    var selectedOptionText by remember { mutableStateOf(text) }
     ExposedDropdownMenuBox(
         modifier = Modifier.fillMaxWidth(),
         expanded = expanded,
         onExpandedChange = { expanded = !expanded }
     ) {
-        ProjectTextField(
+        TextField(
             modifier = modifier,
-            text = selectedOptionText,
-            label = stringResource(R.string.pro_detail_priority_hint),
-            onValueChanged = onValueChanged
+            readOnly = true,
+            singleLine = true,
+            value = selectedOptionText,
+            onValueChange = { },
+            trailingIcon = {
+                ExposedDropdownMenuDefaults.TrailingIcon(
+                    expanded = expanded
+                )
+            },
+            label = { Text(text = label) },
+            colors = TextFieldDefaults.textFieldColors(
+                textColor = MaterialTheme.colors.onSurface,
+                backgroundColor = MaterialTheme.colors.background
+            ),
+            textStyle = textStyle
         )
         ExposedDropdownMenu(
             expanded = expanded,
@@ -43,6 +63,7 @@ fun TransparentHintDropDown(
                 if (option.isNotBlank()) {
                     DropdownMenuItem(
                         onClick = {
+                            onValueChanged(option)
                             selectedOptionText = option
                             expanded = false
                         }
@@ -59,6 +80,9 @@ fun TransparentHintDropDown(
 @Preview(showBackground = true)
 fun TransparentHintDropDownPreview() {
     TransparentHintDropDown(
+        text = "",
+        label = "",
+        textStyle = TextStyle(),
         onValueChanged = { },
     )
 }

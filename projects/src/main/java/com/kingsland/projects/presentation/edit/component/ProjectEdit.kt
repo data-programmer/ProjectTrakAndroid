@@ -30,14 +30,15 @@ fun ProjectEdit(
                 text = viewModel.title.value,
                 label = stringResource(R.string.pro_detail_title_hint),
                 onValueChanged = { viewModel.title.value = it },
-                singleLine = true,
-                textStyle = TextStyle(fontSize = 20.sp)
+                singleLine = true
             )
         }
         item {
             TransparentHintDropDown(
                 modifier = Modifier.fillMaxWidth(),
-                onValueChanged = { viewModel.priority.value = it },
+                text = viewModel.priority.value,
+                label = stringResource(R.string.pro_detail_priority_hint),
+                onValueChanged = { viewModel.priority.value = it }
             )
         }
         item {
@@ -46,8 +47,7 @@ fun ProjectEdit(
                 text = viewModel.description.value,
                 label = stringResource(R.string.pro_detail_description_hint),
                 onValueChanged = { viewModel.description.value = it },
-                singleLine = false,
-                textStyle = TextStyle(fontSize = 20.sp)
+                singleLine = false
             )
         }
     }

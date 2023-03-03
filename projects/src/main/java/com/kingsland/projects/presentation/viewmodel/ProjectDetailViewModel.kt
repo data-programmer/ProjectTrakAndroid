@@ -20,11 +20,8 @@ class ProjectDetailViewModel @Inject constructor(
     val projectEditState: StateFlow<ProjectEditState> = _projectEditState
 
     val title = mutableStateOf("")
-    val isTitleHintVisible = mutableStateOf(false)
     val priority = mutableStateOf("")
-    val isPriorityHintVisible = mutableStateOf(false)
     val description = mutableStateOf("")
-    val isDescriptionHintVisible = mutableStateOf(false)
 
     private val _hasProjectBeenSaved = MutableStateFlow(false)
     val hasProjectBeenSaved: StateFlow<Boolean> = _hasProjectBeenSaved
@@ -55,18 +52,6 @@ class ProjectDetailViewModel @Inject constructor(
                 _projectEditState.value = ProjectEditState.Error(it.message ?: "")
             }
         )
-    }
-
-    fun onTitleFocusChange(isFocused: Boolean) {
-        isTitleHintVisible.value = title.value.isEmpty() && !isFocused
-    }
-
-    fun onPriorityFocusChange(isFocused: Boolean) {
-        isPriorityHintVisible.value = priority.value.isEmpty() && !isFocused
-    }
-
-    fun onDescriptionFocusChange(isFocused: Boolean) {
-        isDescriptionHintVisible.value = description.value.isEmpty() && !isFocused
     }
 
     fun saveProject() {
