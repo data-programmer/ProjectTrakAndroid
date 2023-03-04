@@ -9,12 +9,14 @@ import androidx.compose.material.MaterialTheme
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun ActionButton(
     isVisible: Boolean,
+    icon: ImageVector,
     onClick: () -> Unit = { }
 ) {
     AnimatedVisibility(
@@ -28,7 +30,7 @@ fun ActionButton(
             elevation = FloatingActionButtonDefaults.elevation(8.dp),
         ) {
             Icon(
-                imageVector = Icons.Filled.Add,
+                imageVector = icon,
                 contentDescription = null
             )
         }
@@ -39,6 +41,7 @@ fun ActionButton(
 @Preview(showBackground = true)
 fun ActionButtonPreview() {
     ActionButton(
-        isVisible = true
+        isVisible = true,
+        icon = Icons.Filled.Add
     )
 }

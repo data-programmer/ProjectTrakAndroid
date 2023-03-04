@@ -8,12 +8,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.compose.rememberNavController
-import com.kingsland.projecttrakandroid.model.ScaffoldState
+import com.kingsland.core.model.ScaffoldButtonState
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakAppBar
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakBottomNav
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakNavHost
@@ -37,8 +35,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ProjectTrakScaffold() {
     val navController = rememberNavController()
-    val scaffoldState = remember { mutableStateOf(ScaffoldState()) }
-    val context = LocalContext.current
+    val scaffoldState = remember { ScaffoldButtonState.getInstance() }
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
@@ -51,16 +48,16 @@ fun ProjectTrakScaffold() {
         bottomBar = { ProjectTrakBottomNav(navController) },
         floatingActionButton = {
             ActionButton(
-                isVisible = scaffoldState.value.isFloatingActionButtonVisible,
-                onClick = scaffoldState.value.floatingActionButtonAction
+                isVisible = scaffoldState.isFloatingActionButtonVisible,
+                icon = scaffoldState.floatingActionButtonIcon,
+                onClick = scaffoldState.floatingActionButtonAction
             )
         },
         backgroundColor = MaterialTheme.colors.background,
     ) { paddingValues ->
         ProjectTrakNavHost(
             modifier = Modifier.padding(paddingValues),
-            navController = navController,
-            scaffoldState = scaffoldState,
+            navController = navController
         )
     }
 }

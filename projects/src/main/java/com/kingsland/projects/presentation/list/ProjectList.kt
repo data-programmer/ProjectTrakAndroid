@@ -12,8 +12,8 @@ import com.kingsland.core.ui.components.Empty
 import com.kingsland.core.ui.components.Error
 import com.kingsland.core.ui.components.Loading
 import com.kingsland.projects.R
-import com.kingsland.projects.presentation.model.ProjectState
 import com.kingsland.projects.presentation.list.component.ProjectsLoaded
+import com.kingsland.projects.presentation.model.ProjectState
 import com.kingsland.projects.presentation.viewmodel.ProjectViewModel
 
 @Composable

@@ -1,5 +1,6 @@
 package com.kingsland.projects.presentation.viewmodel
 
+import com.kingsland.core.model.ScaffoldButtonState
 import com.kingsland.core.ui.viewmodel.BaseViewModel
 import com.kingsland.projects.domain.usecase.ProjectUseCase
 import com.kingsland.projects.presentation.model.ProjectState
@@ -16,9 +17,7 @@ class ProjectViewModel @Inject constructor(
     private val _projectState = MutableStateFlow<ProjectState>(ProjectState.Loading)
     val projectState: StateFlow<ProjectState> = _projectState
 
-    init {
-        getProjects()
-    }
+    init { getProjects() }
 
     fun getProjects() {
         execute(

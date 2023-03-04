@@ -3,6 +3,7 @@ package com.kingsland.projects.presentation.viewmodel
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
+import com.kingsland.core.model.ScaffoldButtonState
 import com.kingsland.core.ui.viewmodel.BaseViewModel
 import com.kingsland.projects.domain.usecase.ProjectUseCase
 import com.kingsland.projects.presentation.model.Project
