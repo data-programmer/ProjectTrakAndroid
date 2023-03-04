@@ -28,7 +28,7 @@ fun ProjectsLoaded(
                 name = project.title,
                 desc = project.description,
                 dateCreated =  project.dateCreated,
-                onClick = { onProjectClick(project.id) }
+                onClick = { project.id?.let { onProjectClick(it) } }
             )
         }
     }

@@ -8,7 +8,7 @@ import com.kingsland.projects.presentation.model.Project
 import com.kingsland.projects.presentation.model.Task
 
 fun ProjectDto.convertToDomain() = ProjectDomain(
-    id = id,
+    id = id ?: -1,
     title = name,
     priority = priority,
     description = description,
@@ -28,7 +28,7 @@ fun ProjectDomain.convertToDomain() = ProjectDto(
 )
 
 fun Project.convertToDomain() = ProjectDomain(
-    id = id,
+    id = id ?: -1,
     title = title,
     priority = priority,
     description = description,

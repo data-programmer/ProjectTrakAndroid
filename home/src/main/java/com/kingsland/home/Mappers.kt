@@ -12,7 +12,7 @@ import com.kingsland.home.presentation.model.Statistic
 import com.kingsland.home.presentation.model.Task
 
 fun ProjectDto.convertToSource() = ProjectDomain(
-    id = id,
+    id = id ?: -1,
     name = name,
     priority = priority,
     description = description,

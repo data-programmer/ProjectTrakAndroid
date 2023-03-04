@@ -23,7 +23,7 @@ fun ProjectEditScreen(
     val projectDetailState = viewModel.projectEditState.collectAsState()
     when (projectDetailState.value) {
         is ProjectEditState.Loading -> { Loading() }
-        is ProjectEditState.Edit -> { ProjectEdit(viewModel = viewModel) }
+        is ProjectEditState.Edit, ProjectEditState.Create -> { ProjectEdit(viewModel = viewModel) }
         is ProjectEditState.Error -> {
             Error(
                 imageVector = Icons.Filled.Close,

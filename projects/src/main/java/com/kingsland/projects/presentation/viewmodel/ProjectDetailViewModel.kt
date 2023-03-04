@@ -1,9 +1,11 @@
 package com.kingsland.projects.presentation.viewmodel
 
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
 import com.kingsland.core.ui.viewmodel.BaseViewModel
 import com.kingsland.projects.domain.usecase.ProjectUseCase
+import com.kingsland.projects.presentation.model.Project
 import com.kingsland.projects.presentation.model.ProjectEditState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -19,14 +21,14 @@ class ProjectDetailViewModel @Inject constructor(
     private val _projectEditState = MutableStateFlow<ProjectEditState>(ProjectEditState.Loading)
     val projectEditState: StateFlow<ProjectEditState> = _projectEditState
 
-    val title = mutableStateOf("")
-    val priority = mutableStateOf("")
-    val description = mutableStateOf("")
-
-    private val _hasProjectBeenSaved = MutableStateFlow(false)
-    val hasProjectBeenSaved: StateFlow<Boolean> = _hasProjectBeenSaved
+    private val _hasSavedProject = MutableStateFlow(false)
+    val hasSavedProject: StateFlow<Boolean> = _hasSavedProject
 
     private var existingProjectId: Int? = null
+
+    val title: MutableState<String> = mutableStateOf("")
+    val priority: MutableState<String> = mutableStateOf("")
+    val description: MutableState<String> = mutableStateOf("")
 
     init {
         savedStateHandle.get<Int>("projectId")?.let { projectId ->
@@ -34,7 +36,7 @@ class ProjectDetailViewModel @Inject constructor(
                 this.existingProjectId = projectId
                 getProjectById(projectId)
             } else {
-                _projectEditState.value = ProjectEditState.Edit
+                _projectEditState.value = ProjectEditState.Create
             }
         }
     }
@@ -45,20 +47,30 @@ class ProjectDetailViewModel @Inject constructor(
             onSuccess = { project ->
                 _projectEditState.value = ProjectEditState.Edit
                 title.value = project.title
-                priority.value = project.priority.toString()
+                priority.value = project.priority
                 description.value = project.description
             },
-            onFailure = {
-                _projectEditState.value = ProjectEditState.Error(it.message ?: "")
-            }
+            onFailure = { _projectEditState.value = ProjectEditState.Error(it.message ?: "") }
         )
     }
 
     fun saveProject() {
         execute(
-            action = {  },
-            onSuccess = {  },
-            onFailure = {  }
+            action = {
+                val project = Project(
+                    id = existingProjectId,
+                    title = title.value,
+                    priority = priority.value,
+                    description = description.value,
+                    dateCreated = "" // TODO
+                )
+                when (_projectEditState.value) {
+                    is ProjectEditState.Create -> { projectUseCase.insertProject(project) }
+                    else -> { projectUseCase.updateProject(project) }
+                }
+            },
+            onSuccess = { _hasSavedProject.value = true },
+            onFailure = { _projectEditState.value = ProjectEditState.Error(it.message ?: "") }
         )
     }
 
