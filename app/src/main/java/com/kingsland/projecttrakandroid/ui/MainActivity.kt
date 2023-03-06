@@ -8,7 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.kingsland.core.model.ScaffoldButtonState
@@ -19,6 +18,7 @@ import com.kingsland.projecttrakandroid.ui.component.ActionButton
 import com.kingsland.projecttrakandroid.util.Util
 import com.kingsland.theme.ProjectTrakAndroidTheme
 import dagger.hilt.android.AndroidEntryPoint
+import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -35,7 +35,6 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun ProjectTrakScaffold() {
     val navController = rememberNavController()
-    val scaffoldState = remember { ScaffoldButtonState.getInstance() }
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
@@ -46,13 +45,6 @@ fun ProjectTrakScaffold() {
             )
         },
         bottomBar = { ProjectTrakBottomNav(navController) },
-        floatingActionButton = {
-            ActionButton(
-                isVisible = scaffoldState.isFloatingActionButtonVisible,
-                icon = scaffoldState.floatingActionButtonIcon,
-                onClick = scaffoldState.floatingActionButtonAction
-            )
-        },
         backgroundColor = MaterialTheme.colors.background,
     ) { paddingValues ->
         ProjectTrakNavHost(

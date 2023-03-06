@@ -23,10 +23,12 @@ fun ProjectTrakAppBar(
     modifier: Modifier = Modifier,
     greeting: String? = null,
     name: String? = null,
-    onProfileClick: () -> Unit = { }
+    onProfileClick: () -> Unit = { },
+    backNavIcon: @Composable (() -> Unit)? = null
 ) {
     TopAppBar(
         modifier = modifier,
+        navigationIcon = backNavIcon,
         title = {
             name?.let {
                 Row(

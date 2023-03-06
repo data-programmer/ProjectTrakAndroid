@@ -30,7 +30,7 @@ fun ProjectTrakNavHost(
         startDestination = startDestination.route
     ) {
         composable(Screen.Home.route) { HomeScreen(navController = navController) }
-        composable(Screen.Contributors.route) { ContributorsScreen(navController = navController) }
+
         navigation(
             startDestination = ProjectScreen.ProjectList.route,
             route = Screen.Projects.route
@@ -67,5 +67,6 @@ fun ProjectTrakNavHost(
                 )
             }
         }
+        composable(Screen.Contributors.route) { ContributorsScreen(navController = navController) }
     }
 }

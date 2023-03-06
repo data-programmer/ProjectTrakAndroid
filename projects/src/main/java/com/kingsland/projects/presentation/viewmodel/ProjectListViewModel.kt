@@ -1,6 +1,5 @@
 package com.kingsland.projects.presentation.viewmodel
 
-import com.kingsland.core.model.ScaffoldButtonState
 import com.kingsland.core.ui.viewmodel.BaseViewModel
 import com.kingsland.projects.domain.usecase.ProjectUseCase
 import com.kingsland.projects.presentation.model.ProjectState
@@ -10,7 +9,7 @@ import kotlinx.coroutines.flow.StateFlow
 import javax.inject.Inject
 
 @HiltViewModel
-class ProjectViewModel @Inject constructor(
+class ProjectListViewModel @Inject constructor(
     private val projectUseCase: ProjectUseCase
 ) : BaseViewModel() {
 
