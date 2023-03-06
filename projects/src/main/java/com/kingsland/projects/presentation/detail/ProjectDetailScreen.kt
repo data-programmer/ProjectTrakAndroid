@@ -26,8 +26,8 @@ fun ProjectDetailScreen(
         is ProjectDetailState.Loaded -> {
             ProjectDetailLoaded(
                 project = state.project,
-                onProjectEdit = {  },
-                onProjectDelete = {  }
+                onProjectEdit = { navController.navigate("") },
+                onProjectDelete = { navController.navigate("") }
             )
         }
         is ProjectDetailState.Error -> {
