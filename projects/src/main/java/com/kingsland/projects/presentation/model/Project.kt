@@ -1,12 +1,11 @@
 package com.kingsland.projects.presentation.model
 
 data class Project(
-  val id: Int? = null,
+  val id: Int = 0,
   val title: String,
   val priority: String,
   val description: String,
-  val dateCreated: String,
-  // TODO: Add contributors later
+  val dateCreated: String
 ) {
   companion object {
     fun getTestData() = listOf(

@@ -3,7 +3,6 @@ package com.kingsland.projects.presentation.viewmodel
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.SavedStateHandle
-import com.kingsland.core.model.ScaffoldButtonState
 import com.kingsland.core.ui.viewmodel.BaseViewModel
 import com.kingsland.projects.domain.usecase.ProjectUseCase
 import com.kingsland.projects.presentation.model.Project
@@ -11,10 +10,13 @@ import com.kingsland.projects.presentation.model.ProjectEditState
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import java.text.SimpleDateFormat
+import java.util.Locale
+import java.util.Calendar
 import javax.inject.Inject
 
 @HiltViewModel
-class ProjectDetailViewModel @Inject constructor(
+class ProjectEditViewModel @Inject constructor(
     private val projectUseCase: ProjectUseCase,
     savedStateHandle: SavedStateHandle
 ) : BaseViewModel() {
@@ -25,7 +27,7 @@ class ProjectDetailViewModel @Inject constructor(
     private val _hasSavedProject = MutableStateFlow(false)
     val hasSavedProject: StateFlow<Boolean> = _hasSavedProject
 
-    private var existingProjectId: Int? = null
+    private var existingProjectId: Int = 0
 
     val title: MutableState<String> = mutableStateOf("")
     val priority: MutableState<String> = mutableStateOf("")
@@ -55,6 +57,9 @@ class ProjectDetailViewModel @Inject constructor(
         )
     }
 
+    private fun getDate(): String = SimpleDateFormat("MM/dd/yyyy", Locale.US)
+        .format(Calendar.getInstance().time)
+
     fun saveProject() {
         execute(
             action = {
@@ -63,7 +68,7 @@ class ProjectDetailViewModel @Inject constructor(
                     title = title.value,
                     priority = priority.value,
                     description = description.value,
-                    dateCreated = "" // TODO
+                    dateCreated = getDate()
                 )
                 when (_projectEditState.value) {
                     is ProjectEditState.Create -> { projectUseCase.insertProject(project) }

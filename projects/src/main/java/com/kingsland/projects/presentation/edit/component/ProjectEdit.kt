@@ -5,7 +5,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -15,13 +14,13 @@ import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.kingsland.core.ui.components.ButtonLayout
 import com.kingsland.projects.R
-import com.kingsland.projects.presentation.viewmodel.ProjectDetailViewModel
+import com.kingsland.projects.presentation.viewmodel.ProjectEditViewModel
 
 @Composable
 fun ProjectEdit(
     modifier: Modifier = Modifier,
     navController: NavController,
-    viewModel: ProjectDetailViewModel
+    viewModel: ProjectEditViewModel
 ) {
     ButtonLayout(
         buttonIcon = Icons.Filled.Create,

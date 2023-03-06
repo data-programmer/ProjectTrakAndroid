@@ -10,15 +10,12 @@ import androidx.compose.material.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
-import com.kingsland.core.model.ScaffoldButtonState
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakAppBar
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakBottomNav
 import com.kingsland.projecttrakandroid.navigation.ProjectTrakNavHost
-import com.kingsland.projecttrakandroid.ui.component.ActionButton
 import com.kingsland.projecttrakandroid.util.Util
 import com.kingsland.theme.ProjectTrakAndroidTheme
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {

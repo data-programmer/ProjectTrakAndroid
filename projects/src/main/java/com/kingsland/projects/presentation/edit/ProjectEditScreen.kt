@@ -12,13 +12,13 @@ import com.kingsland.core.ui.components.Loading
 import com.kingsland.projects.R
 import com.kingsland.projects.presentation.edit.component.ProjectEdit
 import com.kingsland.projects.presentation.model.ProjectEditState
-import com.kingsland.projects.presentation.viewmodel.ProjectDetailViewModel
+import com.kingsland.projects.presentation.viewmodel.ProjectEditViewModel
 
 @Composable
 fun ProjectEditScreen(
     projectId: Int,
     navController: NavController,
-    viewModel: ProjectDetailViewModel = hiltViewModel()
+    viewModel: ProjectEditViewModel = hiltViewModel()
 ) {
     val projectDetailState = viewModel.projectEditState.collectAsState()
     when (projectDetailState.value) {
