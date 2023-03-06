@@ -16,7 +16,7 @@ import com.kingsland.core.ui.components.ProjectCard
 import com.kingsland.projects.presentation.model.Project
 
 @Composable
-fun ProjectsLoaded(
+fun ProjectListLoaded(
     projects: List<Project>,
     onProjectClick: (Int) -> Unit = { },
     onButtonClick: () -> Unit = { }
@@ -37,7 +37,7 @@ fun ProjectsLoaded(
                     name = project.title,
                     desc = project.description,
                     dateCreated =  project.dateCreated,
-                    onClick = { project.id?.let { onProjectClick(it) } }
+                    onClick = { onProjectClick(project.id) }
                 )
             }
         }
@@ -47,7 +47,7 @@ fun ProjectsLoaded(
 @Composable
 @Preview(showBackground = true)
 fun ProjectsLoadedPreview() {
-    ProjectsLoaded(
+    ProjectListLoaded(
         projects = listOf()
     )
 }

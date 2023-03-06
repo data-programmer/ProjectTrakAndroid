@@ -13,7 +13,7 @@ import com.kingsland.core.ui.components.EmptyButton
 import com.kingsland.core.ui.components.Error
 import com.kingsland.core.ui.components.Loading
 import com.kingsland.projects.R
-import com.kingsland.projects.presentation.list.component.ProjectsLoaded
+import com.kingsland.projects.presentation.list.component.ProjectListLoaded
 import com.kingsland.projects.presentation.model.ProjectState
 import com.kingsland.projects.presentation.navigation.ProjectScreen
 import com.kingsland.projects.presentation.viewmodel.ProjectListViewModel
@@ -35,7 +35,7 @@ fun ProjectList(
             )
         }
         is ProjectState.Loaded -> {
-            ProjectsLoaded(
+            ProjectListLoaded(
                 projects = state.projects,
                 onProjectClick = { id -> navController.navigate("${ProjectScreen.ProjectDetail.route}/$id") },
                 onButtonClick = { navController.navigate("${ProjectScreen.ProjectEdit.route}/-1") }

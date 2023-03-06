@@ -20,8 +20,8 @@ fun ProjectEditScreen(
     navController: NavController,
     viewModel: ProjectEditViewModel = hiltViewModel()
 ) {
-    val projectDetailState = viewModel.projectEditState.collectAsState()
-    when (projectDetailState.value) {
+    val projectEditState = viewModel.projectEditState.collectAsState()
+    when (projectEditState.value) {
         is ProjectEditState.Loading -> { Loading() }
         is ProjectEditState.Edit, ProjectEditState.Create -> {
             ProjectEdit(
