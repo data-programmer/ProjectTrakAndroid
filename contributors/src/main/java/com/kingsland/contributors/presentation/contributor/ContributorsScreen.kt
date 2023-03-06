@@ -1,6 +1,7 @@
 package com.kingsland.contributors.presentation.contributor
 
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Add
 import androidx.compose.material.icons.filled.Close
 import androidx.compose.material.icons.filled.Create
 import androidx.compose.runtime.Composable
@@ -12,9 +13,9 @@ import com.kingsland.contributors.R
 import com.kingsland.contributors.presentation.contributor.component.ContributorLoaded
 import com.kingsland.contributors.presentation.model.ContributorState
 import com.kingsland.contributors.presentation.viewmodel.ContributorViewModel
-import com.kingsland.core.ui.components.Empty
-import com.kingsland.core.ui.components.Loading
+import com.kingsland.core.ui.components.EmptyButton
 import com.kingsland.core.ui.components.Error
+import com.kingsland.core.ui.components.Loading
 
 @Composable
 fun ContributorsScreen(
@@ -25,14 +26,17 @@ fun ContributorsScreen(
     when (val state = contributorState.value) {
         is ContributorState.Loading -> { Loading() }
         is ContributorState.Empty -> {
-            Empty(
+            EmptyButton(
                 imageVector = Icons.Filled.Create,
-                message = stringResource(R.string.contributor_empty_message)
+                message = stringResource(R.string.contributor_empty_message),
+                buttonIcon = Icons.Filled.Add,
+                onButtonClick = { navController.navigate("") }
             )
         }
         is ContributorState.Loaded -> {
             ContributorLoaded(
                 contributors = state.contributors,
+                navController = navController,
                 onContributorClick = { id -> navController.navigate("contributor/$id") }
             )
         }
