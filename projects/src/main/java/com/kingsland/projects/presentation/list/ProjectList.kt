@@ -37,7 +37,7 @@ fun ProjectList(
         is ProjectState.Loaded -> {
             ProjectsLoaded(
                 projects = state.projects,
-                onProjectClick = { id -> navController.navigate("${ProjectScreen.ProjectDetail}/$id") },
+                onProjectClick = { id -> navController.navigate("${ProjectScreen.ProjectDetail.route}/$id") },
                 onButtonClick = { navController.navigate("${ProjectScreen.ProjectEdit.route}/-1") }
             )
         }
