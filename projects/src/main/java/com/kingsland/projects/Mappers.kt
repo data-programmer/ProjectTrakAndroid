@@ -28,7 +28,7 @@ fun ProjectDomain.convertToDomain() = ProjectDto(
 )
 
 fun Project.convertToDomain() = ProjectDomain(
-    id = id ?: -1,
+    id = id,
     title = title,
     priority = priority,
     description = description,

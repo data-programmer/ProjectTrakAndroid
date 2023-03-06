@@ -36,12 +36,17 @@ fun ProjectsList(
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             contentPadding = PaddingValues(vertical = 12.dp)
         ) {
-            items(projects) { project ->
-                ProjectCard(
-                    title = project.title,
-                    description = project.description,
-                    onClick = { onProjectClick(project.id) }
-                )
+            when (projects.isEmpty()) {
+                true -> item { Text(text = stringResource(R.string.home_no_projects)) }
+                else -> {
+                    items(projects) { project ->
+                        ProjectCard(
+                            title = project.title,
+                            description = project.description,
+                            onClick = { onProjectClick(project.id) }
+                        )
+                    }
+                }
             }
         }
     }

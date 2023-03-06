@@ -36,12 +36,17 @@ fun InProgressTaskList(
             horizontalArrangement = Arrangement.spacedBy(12.dp),
             contentPadding = PaddingValues(vertical = 12.dp)
         ) {
-            items(tasksInProgress) { task ->
-                TaskCard(
-                    title = task.title,
-                    description = task.description,
-                    onClick = { onTaskClick(task.id) }
-                )
+            when (tasksInProgress.isEmpty()) {
+                true -> item { Text(text = stringResource(R.string.home_no_progress)) }
+                else -> {
+                    items(tasksInProgress) { task ->
+                        TaskCard(
+                            title = task.title,
+                            description = task.description,
+                            onClick = { onTaskClick(task.id) }
+                        )
+                    }
+                }
             }
         }
     }

@@ -30,17 +30,22 @@ fun BacklogTaskList(
             style = MaterialTheme.typography.h5
         )
         LazyRow(
-          modifier = Modifier.fillMaxWidth(),
-          verticalAlignment = Alignment.CenterVertically,
-          horizontalArrangement = Arrangement.spacedBy(12.dp),
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
             contentPadding = PaddingValues(vertical = 12.dp)
         ) {
-            items(backlogTasks) { task ->
-                TaskCard(
-                    title = task.title,
-                    description = task.description,
-                    onClick = { onTaskClick(task.id) }
-                )
+            when (backlogTasks.isEmpty()) {
+                true -> item { Text(text = stringResource(R.string.home_no_backlog)) }
+                else -> {
+                    items(backlogTasks) { task ->
+                        TaskCard(
+                            title = task.title,
+                            description = task.description,
+                            onClick = { onTaskClick(task.id) }
+                        )
+                    }
+                }
             }
         }
     }

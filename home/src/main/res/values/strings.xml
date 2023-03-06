@@ -6,4 +6,10 @@
     <string name="home_empty_message">Looks like your home screen is empty. After you create a project, it will appear here.</string>
     <string name="home_error_message">Something went wrong. Try again or come back later.</string>
     <string name="home_try_again">Try again</string>
+    
+    <string name="home_no_projects">No projects found</string>
+    <string name="home_no_backlog">No backlog tasks found</string>
+    <string name="home_no_progress">No in progress tasks found</string>
+    <string name="home_no_statistics">No statistics to display at this time</string>
+    
 </resources>

@@ -11,8 +11,10 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.kingsland.home.R
 import com.kingsland.home.presentation.model.Statistic
 
 @Composable
@@ -33,17 +35,9 @@ fun StatsLayout(
             horizontalArrangement = Arrangement.SpaceEvenly,
             contentPadding = PaddingValues(vertical = 12.dp)
         ) {
-            if (statisticList.isNotEmpty()) {
-                items(statisticList) { stat ->
-                    StatCard(statistic = stat)
-                }
-            } else {
-                item {
-                    Text(
-                        text = "No statistics to display at this time",
-                        style = MaterialTheme.typography.body1
-                    )
-                }
+            when (statisticList.isEmpty()) {
+                true -> item { Text(text = stringResource(R.string.home_no_statistics)) }
+                else -> { items(statisticList) { stat -> StatCard(statistic = stat) } }
             }
         }
     }
